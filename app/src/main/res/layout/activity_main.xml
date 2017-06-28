@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.patrick.outfitplanner.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:id="@+id/whole">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/criteria">
+
+                <LinearLayout
+                    android:id="@+id/filters"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Filters"
+                        android:id="@+id/filtersbutton"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/actions">
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Generate"
+                        android:id="@+id/generatebutton" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Random"
+                        android:id="@+id/randombutton" />
+
+                </LinearLayout>
+
+                <GridView
+                    android:id="@+id/resultgrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:verticalSpacing="5dp"
+                    android:horizontalSpacing="5dp"
+                    android:stretchMode="spacingWidthUniform"
+                    android:columnWidth="75dp"
+                    android:numColumns="auto_fit"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+
+                </GridView>
+
+                <TextView
+                    android:id="@+id/typetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:text="Random"
+                    android:textStyle="bold"
+                    android:textSize="35sp"/>
+
+                <ImageView
+                    android:id="@+id/emptyimage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@mipmap/none"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/allclothes"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/clothes1"
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Hats"
+                        android:id="@+id/hatbutton" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Shirts"
+                        android:id="@+id/shirtbutton" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Overalls"
+                        android:id="@+id/overallsbutton" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Socks"
+                        android:id="@+id/socksbutton" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/clothes2"
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Scarves"
+                        android:id="@+id/scarfbutton" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Jackets"
+                        android:id="@+id/jacketbutton" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Pants"
+                        android:id="@+id/pantsbutton"/>
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="Shoes"
+                        android:id="@+id/shoesbutton" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="7"
+            android:id="@+id/saved">
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="5"
+                android:id="@+id/leftbutton"
+                android:src="@drawable/leftarrow"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="5"
+                android:text="Save"
+                android:id="@+id/savebutton" />
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="5"
+                android:id="@+id/rightbutton"
+                android:src="@drawable/rightarrow"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="3"
+                android:text="Saved Outfits"
+                android:id="@+id/savedbutton" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
