@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import java.util.ArrayList;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 
@@ -42,19 +44,24 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        //ImageView imageView;
+        GridViewItem imageView;
 
         if (convertView == null) {
-            imageView = new ImageView(mContext);
+            imageView = new GridViewItem(mContext);
             //imageView.setLayoutParams(new GridView.LayoutParams(85,85));
             //imageView.setLayoutParams(new GridView.LayoutParams(400,400));
-            imageView.setLayoutParams(new GridView.LayoutParams(this.param,this.param));
+            //imageView.setLayoutParams(new GridView.LayoutParams(this.param,this.param));
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
+            imageView.setLayoutParams(new GridView.LayoutParams(params));
+            //imageView.setMaxHeight(200);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setAdjustViewBounds(true);
             imageView.setPadding(18, 18, 18, 18);
         }
         else
         {
-            imageView = (ImageView) convertView;
+            imageView = (GridViewItem) convertView;
         }
         String imagePath = mThumbIds.get(position).getImage();
         try {

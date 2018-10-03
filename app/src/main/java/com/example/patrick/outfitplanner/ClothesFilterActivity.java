@@ -42,11 +42,11 @@ public class ClothesFilterActivity extends AppCompatActivity {
         position = bundle.getInt("id");
         switch (position) {
             case 0:
-                clothesType = "HATS";
+                clothesType = "HEAD";
                 break;
 
             case 1:
-                clothesType = "SCARVES";
+                clothesType = "NECK";
                 break;
 
             case 2:
@@ -58,7 +58,7 @@ public class ClothesFilterActivity extends AppCompatActivity {
                 break;
 
             case 4:
-                clothesType = "OVERALLS";
+                clothesType = "FULL BODY";
                 break;
 
             case 5:
@@ -160,22 +160,22 @@ public class ClothesFilterActivity extends AppCompatActivity {
         int[] weatherList = new int[6];
         int[] formalityList = new int[5];
         switch (clothesType) {
-            case "HATS":
+            case "HEAD":
                 filterClothesList.clear();
-                size = mSharedPreference1.getInt("hat_size", 0);
+                size = mSharedPreference1.getInt("head_size", 0);
                 for (int i = 0; i < size; ++i) {
-                    imgPath = mSharedPreference1.getString("hat_image" + i, null);
-                    allowedBool = mSharedPreference1.getBoolean("hat_allowed" + i, false);
-                    itemDesc = mSharedPreference1.getString("hat_desc" + i, null);
-                    itemType = mSharedPreference1.getString("hat_type" + i, null);
+                    imgPath = mSharedPreference1.getString("head_image" + i, null);
+                    allowedBool = mSharedPreference1.getBoolean("head_allowed" + i, false);
+                    itemDesc = mSharedPreference1.getString("head_desc" + i, null);
+                    itemType = mSharedPreference1.getString("head_type" + i, null);
                     for (int k = 0; k < 19; ++k) {
-                        colorsList[k] = mSharedPreference1.getInt("hat_colors" + i + "_" + k, 0);
+                        colorsList[k] = mSharedPreference1.getInt("head_colors" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 6; ++k) {
-                        weatherList[k] = mSharedPreference1.getInt("hat_weathers" + i + "_" + k, 0);
+                        weatherList[k] = mSharedPreference1.getInt("head_weathers" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 5; ++k) {
-                        formalityList[k] = mSharedPreference1.getInt("hat_formalities" + i + "_" + k, 0);
+                        formalityList[k] = mSharedPreference1.getInt("head_formalities" + i + "_" + k, 0);
                     }
                     Clothes createdClothes = new Clothes(imgPath, allowedBool, itemDesc, itemType, colorsList,
                             weatherList, formalityList);
@@ -183,22 +183,22 @@ public class ClothesFilterActivity extends AppCompatActivity {
                 }
                 break;
 
-            case "SCARVES":
+            case "NECK":
                 filterClothesList.clear();
-                size = mSharedPreference1.getInt("scarf_size", 0);
+                size = mSharedPreference1.getInt("neck_size", 0);
                 for (int i = 0; i < size; ++i) {
-                    imgPath = mSharedPreference1.getString("scarf_image" + i, null);
-                    allowedBool = mSharedPreference1.getBoolean("scarf_allowed" + i, false);
-                    itemDesc = mSharedPreference1.getString("scarf_desc" + i, null);
-                    itemType = mSharedPreference1.getString("scarf_type" + i, null);
+                    imgPath = mSharedPreference1.getString("neck_image" + i, null);
+                    allowedBool = mSharedPreference1.getBoolean("neck_allowed" + i, false);
+                    itemDesc = mSharedPreference1.getString("neck_desc" + i, null);
+                    itemType = mSharedPreference1.getString("neck_type" + i, null);
                     for (int k = 0; k < 19; ++k) {
-                        colorsList[k] = mSharedPreference1.getInt("scarf_colors" + i + "_" + k, 0);
+                        colorsList[k] = mSharedPreference1.getInt("neck_colors" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 6; ++k) {
-                        weatherList[k] = mSharedPreference1.getInt("scarf_weathers" + i + "_" + k, 0);
+                        weatherList[k] = mSharedPreference1.getInt("neck_weathers" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 5; ++k) {
-                        formalityList[k] = mSharedPreference1.getInt("scarf_formalities" + i + "_" + k, 0);
+                        formalityList[k] = mSharedPreference1.getInt("neck_formalities" + i + "_" + k, 0);
                     }
                     Clothes createdClothes = new Clothes(imgPath, allowedBool, itemDesc, itemType, colorsList,
                             weatherList, formalityList);
@@ -252,22 +252,22 @@ public class ClothesFilterActivity extends AppCompatActivity {
                 }
                 break;
 
-            case "OVERALLS":
+            case "FULL BODY":
                 filterClothesList.clear();
-                size = mSharedPreference1.getInt("overall_size", 0);
+                size = mSharedPreference1.getInt("fullbody_size", 0);
                 for (int i = 0; i < size; ++i) {
-                    imgPath = mSharedPreference1.getString("overall_image" + i, null);
-                    allowedBool = mSharedPreference1.getBoolean("overall_allowed" + i, false);
-                    itemDesc = mSharedPreference1.getString("overall_desc" + i, null);
-                    itemType = mSharedPreference1.getString("overall_type" + i, null);
+                    imgPath = mSharedPreference1.getString("fullbody_image" + i, null);
+                    allowedBool = mSharedPreference1.getBoolean("fullbody_allowed" + i, false);
+                    itemDesc = mSharedPreference1.getString("fullbody_desc" + i, null);
+                    itemType = mSharedPreference1.getString("fullbody_type" + i, null);
                     for (int k = 0; k < 19; ++k) {
-                        colorsList[k] = mSharedPreference1.getInt("overall_colors" + i + "_" + k, 0);
+                        colorsList[k] = mSharedPreference1.getInt("fullbody_colors" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 6; ++k) {
-                        weatherList[k] = mSharedPreference1.getInt("overall_weathers" + i + "_" + k, 0);
+                        weatherList[k] = mSharedPreference1.getInt("fullbody_weathers" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 5; ++k) {
-                        formalityList[k] = mSharedPreference1.getInt("overall_formalities" + i + "_" + k, 0);
+                        formalityList[k] = mSharedPreference1.getInt("fullbody_formalities" + i + "_" + k, 0);
                     }
                     Clothes createdClothes = new Clothes(imgPath, allowedBool, itemDesc, itemType, colorsList,
                             weatherList, formalityList);

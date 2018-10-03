@@ -69,7 +69,7 @@
                     android:horizontalSpacing="5dp"
                     android:stretchMode="spacingWidthUniform"
                     android:columnWidth="75dp"
-                    android:numColumns="auto_fit"
+                    android:numColumns="4"
                     android:layout_marginTop="10dp"
                     android:gravity="center">
 

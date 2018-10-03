@@ -14,7 +14,6 @@ import android.os.Parcel;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -239,7 +238,7 @@ public class EditClothesInfoActivity extends AppCompatActivity {
                         weatherList, formalityList);
                 if (editMode) {
                     clothesList.set(position, createdClothes);
-                    Log.d("Editting", "Item editted");
+                    Log.d("Editing", "Item edited");
                 }
                 else {
                     clothesList.add(createdClothes);
@@ -319,7 +318,7 @@ public class EditClothesInfoActivity extends AppCompatActivity {
                     weatherList, formalityList);
             if (editMode) {
                 clothesList.set(position, createdClothes);
-                Log.d("Editting", "Item editted");
+                Log.d("Editing", "Item edited");
             } else {
                 clothesList.add(createdClothes);
                 Log.d("Creating", "Item created");
@@ -330,41 +329,41 @@ public class EditClothesInfoActivity extends AppCompatActivity {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor mEdit1 = sp.edit();
             switch (clothesType) {
-                case "HATS":
-                    mEdit1.remove("hat_image" + position);
-                    mEdit1.remove("hat_allowed" + position);
-                    mEdit1.remove("hat_desc" + position);
-                    mEdit1.remove("hat_type" + position);
-                    mEdit1.remove("hat_color_size" + position);
+                case "HEAD":
+                    mEdit1.remove("head_image" + position);
+                    mEdit1.remove("head_allowed" + position);
+                    mEdit1.remove("head_desc" + position);
+                    mEdit1.remove("head_type" + position);
+                    mEdit1.remove("head_color_size" + position);
                     for (int k = 0; k < clothesList.get(position).getColors().length; ++k) {
-                        mEdit1.remove("hat_colors" + position + "_" + k);
+                        mEdit1.remove("head_colors" + position + "_" + k);
                     }
-                    mEdit1.remove("hat_weather_size" + position);
+                    mEdit1.remove("head_weather_size" + position);
                     for (int k = 0; k < clothesList.get(position).getWeathers().length; ++k) {
-                        mEdit1.remove("hat_weathers" + position + "_" + k);
+                        mEdit1.remove("head_weathers" + position + "_" + k);
                     }
-                    mEdit1.remove("hat_formality_size" + position);
+                    mEdit1.remove("head_formality_size" + position);
                     for (int k = 0; k < clothesList.get(position).getFormalities().length; ++k) {
-                        mEdit1.remove("hat_formalities" + position + "_" + k);
+                        mEdit1.remove("head_formalities" + position + "_" + k);
                     }
                     break;
 
-                case "SCARVES":
-                    mEdit1.remove("scarf_image" + position);
-                    mEdit1.remove("scarf_allowed" + position);
-                    mEdit1.remove("scarf_desc" + position);
-                    mEdit1.remove("scarf_type" + position);
-                    mEdit1.remove("scarf_color_size" + position);
+                case "NECK":
+                    mEdit1.remove("neck_image" + position);
+                    mEdit1.remove("neck_allowed" + position);
+                    mEdit1.remove("neck_desc" + position);
+                    mEdit1.remove("neck_type" + position);
+                    mEdit1.remove("neck_color_size" + position);
                     for (int k = 0; k < clothesList.get(position).getColors().length; ++k) {
-                        mEdit1.remove("scarf_colors" + position + "_" + k);
+                        mEdit1.remove("neck_colors" + position + "_" + k);
                     }
-                    mEdit1.remove("scarf_weather_size" + position);
+                    mEdit1.remove("neck_weather_size" + position);
                     for (int k = 0; k < clothesList.get(position).getWeathers().length; ++k) {
-                        mEdit1.remove("scarf_weathers" + position + "_" + k);
+                        mEdit1.remove("neck_weathers" + position + "_" + k);
                     }
-                    mEdit1.remove("scarf_formality_size" + position);
+                    mEdit1.remove("neck_formality_size" + position);
                     for (int k = 0; k < clothesList.get(position).getFormalities().length; ++k) {
-                        mEdit1.remove("scarf_formalities" + position + "_" + k);
+                        mEdit1.remove("neck_formalities" + position + "_" + k);
                     }
                     break;
 
@@ -406,22 +405,22 @@ public class EditClothesInfoActivity extends AppCompatActivity {
                     }
                     break;
 
-                case "OVERALLS":
-                    mEdit1.remove("overall_image" + position);
-                    mEdit1.remove("overall_allowed" + position);
-                    mEdit1.remove("overall_desc" + position);
-                    mEdit1.remove("overall_type" + position);
-                    mEdit1.remove("overall_color_size" + position);
+                case "FULL BODY":
+                    mEdit1.remove("fullbody_image" + position);
+                    mEdit1.remove("fullbody_allowed" + position);
+                    mEdit1.remove("fullbody_desc" + position);
+                    mEdit1.remove("fullbody_type" + position);
+                    mEdit1.remove("fullbody_color_size" + position);
                     for (int k = 0; k < clothesList.get(position).getColors().length; ++k) {
-                        mEdit1.remove("overall_colors" + position + "_" + k);
+                        mEdit1.remove("fullbody_colors" + position + "_" + k);
                     }
-                    mEdit1.remove("overall_weather_size" + position);
+                    mEdit1.remove("fullbody_weather_size" + position);
                     for (int k = 0; k < clothesList.get(position).getWeathers().length; ++k) {
-                        mEdit1.remove("overall_weathers" + position + "_" + k);
+                        mEdit1.remove("fullbody_weathers" + position + "_" + k);
                     }
-                    mEdit1.remove("overall_formality_size" + position);
+                    mEdit1.remove("fullbody_formality_size" + position);
                     for (int k = 0; k < clothesList.get(position).getFormalities().length; ++k) {
-                        mEdit1.remove("overall_formalities" + position + "_" + k);
+                        mEdit1.remove("fullbody_formalities" + position + "_" + k);
                     }
                     break;
 
@@ -556,68 +555,68 @@ public class EditClothesInfoActivity extends AppCompatActivity {
         Log.d(clothesType, "Checking type being saved");
 
         switch (clothesType) {
-            case "HATS":
-                mEdit1.remove("hat_size");
-                mEdit1.putInt("hat_size", clothesList.size());
+            case "HEAD":
+                mEdit1.remove("head_size");
+                mEdit1.putInt("head_size", clothesList.size());
                 for (int i = 0; i < clothesList.size(); ++i) {
-                    mEdit1.remove("hat_image" + i);
-                    mEdit1.putString("hat_image" + i, clothesList.get(i).getImage());
-                    mEdit1.remove("hat_allowed" + i);
-                    mEdit1.putBoolean("hat_allowed" + i, clothesList.get(i).getAllowed());
-                    mEdit1.remove("hat_desc" + i);
-                    mEdit1.putString("hat_desc" + i, clothesList.get(i).getDesc());
-                    mEdit1.remove("hat_type" + i);
-                    mEdit1.putString("hat_type" + i, clothesList.get(i).getType());
-                    mEdit1.remove("hat_color_size" + i);
-                    mEdit1.putInt("hat_color_size" + i, clothesList.get(i).getColors().length);
+                    mEdit1.remove("head_image" + i);
+                    mEdit1.putString("head_image" + i, clothesList.get(i).getImage());
+                    mEdit1.remove("head_allowed" + i);
+                    mEdit1.putBoolean("head_allowed" + i, clothesList.get(i).getAllowed());
+                    mEdit1.remove("head_desc" + i);
+                    mEdit1.putString("head_desc" + i, clothesList.get(i).getDesc());
+                    mEdit1.remove("head_type" + i);
+                    mEdit1.putString("head_type" + i, clothesList.get(i).getType());
+                    mEdit1.remove("head_color_size" + i);
+                    mEdit1.putInt("head_color_size" + i, clothesList.get(i).getColors().length);
                     for (int k = 0; k < 19; ++k) {
-                        mEdit1.remove("hat_colors" + i + "_" + k);
-                        mEdit1.putInt("hat_colors" + i + "_" + k, clothesList.get(i).getColors()[k]);
+                        mEdit1.remove("head_colors" + i + "_" + k);
+                        mEdit1.putInt("head_colors" + i + "_" + k, clothesList.get(i).getColors()[k]);
                     }
-                    mEdit1.remove("hat_weather_size" + i);
-                    mEdit1.putInt("hat_weather_size" + i, clothesList.get(i).getWeathers().length);
+                    mEdit1.remove("head_weather_size" + i);
+                    mEdit1.putInt("head_weather_size" + i, clothesList.get(i).getWeathers().length);
                     for (int k = 0; k < 6; ++k) {
-                        mEdit1.remove("hat_weathers" + i + "_" + k);
-                        mEdit1.putInt("hat_weathers" + i + "_" + k, clothesList.get(i).getWeathers()[k]);
+                        mEdit1.remove("head_weathers" + i + "_" + k);
+                        mEdit1.putInt("head_weathers" + i + "_" + k, clothesList.get(i).getWeathers()[k]);
                     }
-                    mEdit1.remove("hat_formality_size" + i);
-                    mEdit1.putInt("hat_formality_size" + i, clothesList.get(i).getFormalities().length);
+                    mEdit1.remove("head_formality_size" + i);
+                    mEdit1.putInt("head_formality_size" + i, clothesList.get(i).getFormalities().length);
                     for (int k = 0; k < 5; ++k) {
-                        mEdit1.remove("hat_formalities" + i + "_" + k);
-                        mEdit1.putInt("hat_formalities" + i + "_" + k, clothesList.get(i).getFormalities()[k]);
+                        mEdit1.remove("head_formalities" + i + "_" + k);
+                        mEdit1.putInt("head_formalities" + i + "_" + k, clothesList.get(i).getFormalities()[k]);
                     }
                 }
                 break;
 
-            case "SCARVES":
-                mEdit1.remove("scarf_size");
-                mEdit1.putInt("scarf_size", clothesList.size());
+            case "NECK":
+                mEdit1.remove("neck_size");
+                mEdit1.putInt("neck_size", clothesList.size());
                 for (int i = 0; i < clothesList.size(); ++i) {
-                    mEdit1.remove("scarf_image" + i);
-                    mEdit1.putString("scarf_image" + i, clothesList.get(i).getImage());
-                    mEdit1.remove("scarf_allowed" + i);
-                    mEdit1.putBoolean("scarf_allowed" + i, clothesList.get(i).getAllowed());
-                    mEdit1.remove("scarf_desc" + i);
-                    mEdit1.putString("scarf_desc" + i, clothesList.get(i).getDesc());
-                    mEdit1.remove("scarf_type" + i);
-                    mEdit1.putString("scarf_type" + i, clothesList.get(i).getType());
-                    mEdit1.remove("scarf_color_size" + i);
-                    mEdit1.putInt("scarf_color_size" + i, clothesList.get(i).getColors().length);
+                    mEdit1.remove("neck_image" + i);
+                    mEdit1.putString("neck_image" + i, clothesList.get(i).getImage());
+                    mEdit1.remove("neck_allowed" + i);
+                    mEdit1.putBoolean("neck_allowed" + i, clothesList.get(i).getAllowed());
+                    mEdit1.remove("neck_desc" + i);
+                    mEdit1.putString("neck_desc" + i, clothesList.get(i).getDesc());
+                    mEdit1.remove("neck_type" + i);
+                    mEdit1.putString("neck_type" + i, clothesList.get(i).getType());
+                    mEdit1.remove("neck_color_size" + i);
+                    mEdit1.putInt("neck_color_size" + i, clothesList.get(i).getColors().length);
                     for (int k = 0; k < 19; ++k) {
-                        mEdit1.remove("scarf_colors" + i + "_" + k);
-                        mEdit1.putInt("scarf_colors" + i + "_" + k, clothesList.get(i).getColors()[k]);
+                        mEdit1.remove("neck_colors" + i + "_" + k);
+                        mEdit1.putInt("neck_colors" + i + "_" + k, clothesList.get(i).getColors()[k]);
                     }
-                    mEdit1.remove("scarf_weather_size" + i);
-                    mEdit1.putInt("scarf_weather_size" + i, clothesList.get(i).getWeathers().length);
+                    mEdit1.remove("neck_weather_size" + i);
+                    mEdit1.putInt("neck_weather_size" + i, clothesList.get(i).getWeathers().length);
                     for (int k = 0; k < 6; ++k) {
-                        mEdit1.remove("scarf_weathers" + i + "_" + k);
-                        mEdit1.putInt("scarf_weathers" + i + "_" + k, clothesList.get(i).getWeathers()[k]);
+                        mEdit1.remove("neck_weathers" + i + "_" + k);
+                        mEdit1.putInt("neck_weathers" + i + "_" + k, clothesList.get(i).getWeathers()[k]);
                     }
-                    mEdit1.remove("scarf_formality_size" + i);
-                    mEdit1.putInt("scarf_formality_size" + i, clothesList.get(i).getFormalities().length);
+                    mEdit1.remove("neck_formality_size" + i);
+                    mEdit1.putInt("neck_formality_size" + i, clothesList.get(i).getFormalities().length);
                     for (int k = 0; k < 5; ++k) {
-                        mEdit1.remove("scarf_formalities" + i + "_" + k);
-                        mEdit1.putInt("scarf_formalities" + i + "_" + k, clothesList.get(i).getFormalities()[k]);
+                        mEdit1.remove("neck_formalities" + i + "_" + k);
+                        mEdit1.putInt("neck_formalities" + i + "_" + k, clothesList.get(i).getFormalities()[k]);
                     }
                 }
                 break;
@@ -689,35 +688,35 @@ public class EditClothesInfoActivity extends AppCompatActivity {
                 }
                 break;
 
-            case "OVERALLS":
-                mEdit1.remove("overall_size");
-                mEdit1.putInt("overall_size", clothesList.size());
+            case "FULL BODY":
+                mEdit1.remove("fullbody_size");
+                mEdit1.putInt("fullbody_size", clothesList.size());
                 for (int i = 0; i < clothesList.size(); ++i) {
-                    mEdit1.remove("overall_image" + i);
-                    mEdit1.putString("overall_image" + i, clothesList.get(i).getImage());
-                    mEdit1.remove("overall_allowed" + i);
-                    mEdit1.putBoolean("overall_allowed" + i, clothesList.get(i).getAllowed());
-                    mEdit1.remove("overall_desc" + i);
-                    mEdit1.putString("overall_desc" + i, clothesList.get(i).getDesc());
-                    mEdit1.remove("overall_type" + i);
-                    mEdit1.putString("overall_type" + i, clothesList.get(i).getType());
-                    mEdit1.remove("overall_color_size" + i);
-                    mEdit1.putInt("overall_color_size" + i, clothesList.get(i).getColors().length);
+                    mEdit1.remove("fullbody_image" + i);
+                    mEdit1.putString("fullbody_image" + i, clothesList.get(i).getImage());
+                    mEdit1.remove("fullbody_allowed" + i);
+                    mEdit1.putBoolean("fullbody_allowed" + i, clothesList.get(i).getAllowed());
+                    mEdit1.remove("fullbody_desc" + i);
+                    mEdit1.putString("fullbody_desc" + i, clothesList.get(i).getDesc());
+                    mEdit1.remove("fullbody_type" + i);
+                    mEdit1.putString("fullbody_type" + i, clothesList.get(i).getType());
+                    mEdit1.remove("fullbody_color_size" + i);
+                    mEdit1.putInt("fullbody_color_size" + i, clothesList.get(i).getColors().length);
                     for (int k = 0; k < 19; ++k) {
-                        mEdit1.remove("overall_colors" + i + "_" + k);
-                        mEdit1.putInt("overall_colors" + i + "_" + k, clothesList.get(i).getColors()[k]);
+                        mEdit1.remove("fullbody_colors" + i + "_" + k);
+                        mEdit1.putInt("fullbody_colors" + i + "_" + k, clothesList.get(i).getColors()[k]);
                     }
-                    mEdit1.remove("overall_weather_size" + i);
-                    mEdit1.putInt("overall_weather_size" + i, clothesList.get(i).getWeathers().length);
+                    mEdit1.remove("fullbody_weather_size" + i);
+                    mEdit1.putInt("fullbody_weather_size" + i, clothesList.get(i).getWeathers().length);
                     for (int k = 0; k < 6; ++k) {
-                        mEdit1.remove("overall_weathers" + i + "_" + k);
-                        mEdit1.putInt("overall_weathers" + i + "_" + k, clothesList.get(i).getWeathers()[k]);
+                        mEdit1.remove("fullbody_weathers" + i + "_" + k);
+                        mEdit1.putInt("fullbody_weathers" + i + "_" + k, clothesList.get(i).getWeathers()[k]);
                     }
-                    mEdit1.remove("overall_formality_size" + i);
-                    mEdit1.putInt("overall_formality_size" + i, clothesList.get(i).getFormalities().length);
+                    mEdit1.remove("fullbody_formality_size" + i);
+                    mEdit1.putInt("fullbody_formality_size" + i, clothesList.get(i).getFormalities().length);
                     for (int k = 0; k < 5; ++k) {
-                        mEdit1.remove("overall_formalities" + i + "_" + k);
-                        mEdit1.putInt("overall_formalities" + i + "_" + k, clothesList.get(i).getFormalities()[k]);
+                        mEdit1.remove("fullbody_formalities" + i + "_" + k);
+                        mEdit1.putInt("fullbody_formalities" + i + "_" + k, clothesList.get(i).getFormalities()[k]);
                     }
                 }
                 break;
@@ -857,22 +856,22 @@ public class EditClothesInfoActivity extends AppCompatActivity {
         int[] formalityList = new int[5];
         clothesList.clear();
         switch (clothesType) {
-            case "HATS":
-                size = mSharedPreference1.getInt("hat_size", 0);
+            case "HEAD":
+                size = mSharedPreference1.getInt("head_size", 0);
                 Log.d(String.valueOf(size), "Hats loaded");
                 for (int i = 0; i < size; ++i) {
-                    imgPath = mSharedPreference1.getString("hat_image" + i, null);
-                    allowedBool = mSharedPreference1.getBoolean("hat_allowed" + i, false);
-                    itemDesc = mSharedPreference1.getString("hat_desc" + i, null);
-                    itemType = mSharedPreference1.getString("hat_type" + i, null);
+                    imgPath = mSharedPreference1.getString("head_image" + i, null);
+                    allowedBool = mSharedPreference1.getBoolean("head_allowed" + i, false);
+                    itemDesc = mSharedPreference1.getString("head_desc" + i, null);
+                    itemType = mSharedPreference1.getString("head_type" + i, null);
                     for (int k = 0; k < 19; ++k) {
-                        colorsList[k] = mSharedPreference1.getInt("hat_colors" + i + "_" + k, 0);
+                        colorsList[k] = mSharedPreference1.getInt("head_colors" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 6; ++k) {
-                        weatherList[k] = mSharedPreference1.getInt("hat_weathers" + i + "_" + k, 0);
+                        weatherList[k] = mSharedPreference1.getInt("head_weathers" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 5; ++k) {
-                        formalityList[k] = mSharedPreference1.getInt("hat_formalities" + i + "_" + k, 0);
+                        formalityList[k] = mSharedPreference1.getInt("head_formalities" + i + "_" + k, 0);
                     }
                     Clothes createdClothes = new Clothes(imgPath, allowedBool, itemDesc, itemType, colorsList,
                             weatherList, formalityList);
@@ -880,21 +879,21 @@ public class EditClothesInfoActivity extends AppCompatActivity {
                 }
                 break;
 
-            case "SCARVES":
-                size = mSharedPreference1.getInt("scarf_size", 0);
+            case "NECK":
+                size = mSharedPreference1.getInt("neck_size", 0);
                 for (int i = 0; i < size; ++i) {
-                    imgPath = mSharedPreference1.getString("scarf_image" + i, null);
-                    allowedBool = mSharedPreference1.getBoolean("scarf_allowed" + i, false);
-                    itemDesc = mSharedPreference1.getString("scarf_desc" + i, null);
-                    itemType = mSharedPreference1.getString("scarf_type" + i, null);
+                    imgPath = mSharedPreference1.getString("neck_image" + i, null);
+                    allowedBool = mSharedPreference1.getBoolean("neck_allowed" + i, false);
+                    itemDesc = mSharedPreference1.getString("neck_desc" + i, null);
+                    itemType = mSharedPreference1.getString("neck_type" + i, null);
                     for (int k = 0; k < 19; ++k) {
-                        colorsList[k] = mSharedPreference1.getInt("scarf_colors" + i + "_" + k, 0);
+                        colorsList[k] = mSharedPreference1.getInt("neck_colors" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 6; ++k) {
-                        weatherList[k] = mSharedPreference1.getInt("scarf_weathers" + i + "_" + k, 0);
+                        weatherList[k] = mSharedPreference1.getInt("neck_weathers" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 5; ++k) {
-                        formalityList[k] = mSharedPreference1.getInt("scarf_formalities" + i + "_" + k, 0);
+                        formalityList[k] = mSharedPreference1.getInt("neck_formalities" + i + "_" + k, 0);
                     }
                     Clothes createdClothes = new Clothes(imgPath, allowedBool, itemDesc, itemType, colorsList,
                             weatherList, formalityList);
@@ -946,21 +945,21 @@ public class EditClothesInfoActivity extends AppCompatActivity {
                 }
                 break;
 
-            case "OVERALLS":
-                size = mSharedPreference1.getInt("overall_size", 0);
+            case "FULL BODY":
+                size = mSharedPreference1.getInt("fullbody_size", 0);
                 for (int i = 0; i < size; ++i) {
-                    imgPath = mSharedPreference1.getString("overall_image" + i, null);
-                    allowedBool = mSharedPreference1.getBoolean("overall_allowed" + i, false);
-                    itemDesc = mSharedPreference1.getString("overall_desc" + i, null);
-                    itemType = mSharedPreference1.getString("overall_type" + i, null);
+                    imgPath = mSharedPreference1.getString("fullbody_image" + i, null);
+                    allowedBool = mSharedPreference1.getBoolean("fullbody_allowed" + i, false);
+                    itemDesc = mSharedPreference1.getString("fullbody_desc" + i, null);
+                    itemType = mSharedPreference1.getString("fullbody_type" + i, null);
                     for (int k = 0; k < 19; ++k) {
-                        colorsList[k] = mSharedPreference1.getInt("overall_colors" + i + "_" + k, 0);
+                        colorsList[k] = mSharedPreference1.getInt("fullbody_colors" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 6; ++k) {
-                        weatherList[k] = mSharedPreference1.getInt("overall_weathers" + i + "_" + k, 0);
+                        weatherList[k] = mSharedPreference1.getInt("fullbody_weathers" + i + "_" + k, 0);
                     }
                     for (int k = 0; k < 5; ++k) {
-                        formalityList[k] = mSharedPreference1.getInt("overall_formalities" + i + "_" + k, 0);
+                        formalityList[k] = mSharedPreference1.getInt("fullbody_formalities" + i + "_" + k, 0);
                     }
                     Clothes createdClothes = new Clothes(imgPath, allowedBool, itemDesc, itemType, colorsList,
                             weatherList, formalityList);
