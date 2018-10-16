@@ -956,25 +956,33 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // generate list of clothes that match at least one of each filter type
     public void narrowArray(String clothesType) {
-        boolean match = true;
+        boolean match = false;
+        int matchCount = 0;
         switch (clothesType) {
             case "HEAD":
                 for (int i = 0; i < headList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (headList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (headList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (headList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (headList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (headList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (headList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         headList2.add(headList.get(i));
@@ -985,19 +993,25 @@ public class MainActivity extends AppCompatActivity {
             case "NECK":
                 for (int i = 0; i < neckList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (neckList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (neckList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (neckList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (neckList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (neckList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (neckList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         neckList2.add(neckList.get(i));
@@ -1008,19 +1022,25 @@ public class MainActivity extends AppCompatActivity {
             case "SHIRTS":
                 for (int i = 0; i < shirtList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (shirtList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (shirtList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (shirtList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (shirtList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (shirtList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (shirtList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         shirtList2.add(shirtList.get(i));
@@ -1031,19 +1051,25 @@ public class MainActivity extends AppCompatActivity {
             case "JACKETS":
                 for (int i = 0; i < jacketList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (jacketList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (jacketList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (jacketList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (jacketList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (jacketList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (jacketList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         jacketList2.add(jacketList.get(i));
@@ -1054,19 +1080,25 @@ public class MainActivity extends AppCompatActivity {
             case "FULL BODY":
                 for (int i = 0; i < fullbodyList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (fullbodyList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (fullbodyList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (fullbodyList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (fullbodyList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (fullbodyList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (fullbodyList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         fullbodyList2.add(fullbodyList.get(i));
@@ -1077,19 +1109,25 @@ public class MainActivity extends AppCompatActivity {
             case "PANTS":
                 for (int i = 0; i < pantsList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (pantsList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (pantsList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (pantsList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (pantsList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (pantsList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (pantsList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         pantsList2.add(pantsList.get(i));
@@ -1100,19 +1138,25 @@ public class MainActivity extends AppCompatActivity {
             case "SOCKS":
                 for (int i = 0; i < socksList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (socksList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (socksList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (socksList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (socksList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (socksList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (socksList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         socksList2.add(socksList.get(i));
@@ -1123,19 +1167,25 @@ public class MainActivity extends AppCompatActivity {
             case "SHOES":
                 for (int i = 0; i < shoesList.size(); ++i) {
                     for (int k = 7; k < 19; ++k) {
-                        if (shoesList.get(i).getColors()[k] == 1 && filterColorsList[k] == 0) {
-                            match = false;
+                        if (shoesList.get(i).getColors()[k] == 1 && filterColorsList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 6; ++k) {
-                        if (shoesList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 0) {
-                            match = false;
+                        if (shoesList.get(i).getWeathers()[k] == 1 && filterWeatherList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
                     }
                     for (int k = 0; k < 5; ++k) {
-                        if (shoesList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 0) {
-                            match = false;
+                        if (shoesList.get(i).getFormalities()[k] == 1 && filterFormalityList[k] == 1) {
+                            ++matchCount;
+                            break;
                         }
+                    }
+                    if (matchCount == 3) {
+                        match = true;
                     }
                     if (match) {
                         shoesList2.add(shoesList.get(i));
@@ -1145,22 +1195,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // generate list of clothes that contain colors matching color scheme
+    // TODO: Should we check for violated filters?
     public ArrayList<Clothes> getEligibleArray(int color1, int color2, int color3, ArrayList<Clothes> clothesArray) {
         ArrayList<Clothes> eligibleList = new ArrayList<>();
-        int counter = 0;
         for (int i = 0; i < clothesArray.size(); ++i) {
             if (clothesArray.get(i).getColors()[color1] == 1 || clothesArray.get(i).getColors()[color2] == 1 ||
                     clothesArray.get(i).getColors()[color3] == 1) {
-                eligibleList.add(counter, clothesArray.get(i));
-                ++counter;
+                eligibleList.add(clothesArray.get(i));
             }
         }
         return eligibleList;
     }
 
+    // TODO: Make a isNeutral() function to determine purely neutral colored clothes
+    // has non-neutral colors that do not violate filters
     public boolean hasNonNeutralColors(int[] colorArray) {
         for (int i = 7; i < 19; ++i) {
-            if (colorArray[i] == 1) {
+            if (colorArray[i] == 1 && filterColorsList[i] == 1) {
                 return true;
             }
         }
@@ -1171,20 +1223,27 @@ public class MainActivity extends AppCompatActivity {
         int randIndex = 0;
         Random rand = new Random();
         int counter = 0;
+        // count non-neutral colors that are allowed by filters
         for (int i = 7; i < 19; ++i) {
-            if (colorArray[i] == 1) {
+            if (colorArray[i] == 1 && filterColorsList[i] == 1) {
                 ++counter;
             }
         }
-        int randNumber = rand.nextInt(counter) + 1;
+        int randNumber = 0;
+        if (counter == 0) {
+            randNumber = 1;
+        }
+        else {
+            randNumber = rand.nextInt(counter) + 1; // nextInt takes > 0 only
+        }
         counter = 0;
         for (int i = 7; i < 19; ++i) {
-            if (colorArray[i] == 1) {
+            if (colorArray[i] == 1 && filterColorsList[i] == 1) {
                 ++counter;
             }
             if (counter == randNumber) {
                 randIndex = i;
-                i = 19;
+                break;
             }
         }
         return randIndex;
@@ -1198,157 +1257,214 @@ public class MainActivity extends AppCompatActivity {
         int color1count = 0;
         int color2count = 0;
         int color3count = 0;
-        int[] completed = new int[8];
-        int[] completed2 = new int[8];
-        int totalCompleted = 0;
+        ArrayList<Integer> completedIndex = new ArrayList<>(8); // indices of completed categories
+        ArrayList<Integer> incompleteIndex = new ArrayList<>(8); // '' incomplete categories
         Random rand = new Random();
-        ArrayList<ArrayList<Clothes>> remaining = new ArrayList<>(loadedList);
-        int[] remainingIndex = new int[8];
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
+            // if filter has clothes selected already, that category is completed
             if (!(filtersList.get(i).getType().equals("NONE"))) {
-                completed[i] = 1;
+                completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-                ++totalCompleted;
             }
             else {
-                completed[i] = 0;
+                incompleteIndex.add(i);
             }
-            completed2[i] = 0; // set completed2[] to all 0s
-            remainingIndex[i] = 1; // set remainingIndex[] to all 1s
         }
 
         // pick 1 random category from pre-selected filters
-        for (int i = totalCompleted; i > 0; --i) {
-            randNum = rand.nextInt(i) + 1;
-            int counter = 0;
-            int randIndex = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 1) {
-                    if (completed2[j] == 0) {
-                        ++counter;
-                        //    completed2[j] = 1;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex = j;
-                    completed2[j] = 1;
-                    j = completed.length;
-                }
-            }
-            // first color selected, set color theme
-            if (color1 == -1) {
+        int counter = 0;
+        int randIndex = 0;
+        if (completedIndex.size() > 0) {
+            randNum = rand.nextInt(completedIndex.size());
+            while (color1 == -1 && counter != completedIndex.size()) {
+                randIndex = completedIndex.get(randNum);
                 if (hasNonNeutralColors(filtersList.get(randIndex).getColors())) {
                     color1 = getRandNonNeutralColor(filtersList.get(randIndex).getColors());
-                    ++color1count;
-                    if (color1 + 4 > 18) {
-                        color2 = 6 + (color1 - 14);
+                    color2 = color1 + 4;
+                    if (color2 > 18) {
+                        color2 = 6 + (color2 % 18);
                     }
-                    else {
-                        color2 = color1 + 4;
+                    color3 = color1 + 8;
+                    if (color3 > 18) {
+                        color3 = 6 + (color3 % 18);
                     }
-                    if (color2 + 4 > 18) {
-                        color3 = 6 + (color2 - 14);
-                    }
-                    else {
-                        color3 = color2 + 4;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                        ++color3count;
+                } else {
+                    ++counter;
+                    ++randNum;
+                    if (randNum >= completedIndex.size()) {
+                        randNum = 0;
                     }
                 }
             }
-            // increase color counts
-            else {
-                if (filtersList.get(randIndex).getColors()[color1] == 1) {
-                    ++color1count;
-                }
-                if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                    ++color2count;
-                }
-                if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                    ++color3count;
-                }
+        }
+        for (int i = 0; i < completedIndex.size(); ++i) {
+            int currIndex = completedIndex.get(i);
+            if (filtersList.get(currIndex).getColors()[color1] == 1) {
+                ++color1count;
             }
-            remaining.remove(randNum - 1);
+            if (filtersList.get(currIndex).getColors()[color2] == 1) {
+                ++color2count;
+            }
+            if (filtersList.get(currIndex).getColors()[color3] == 1) {
+                ++color3count;
+            }
         }
 
         // go through non-pre-selected categories
-        while (remaining.size() > 0) {
-            randNum = rand.nextInt(remaining.size()) + 1;
-            int counter = 0;
-            int randIndex2 = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 0) {
-                    if (remainingIndex[j] == 1) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex2 = j;
-                    remainingIndex[j] = 0;
-                    j = completed.length;
+        ArrayList<Clothes> fullList;
+        ArrayList<Clothes> narrowList;
+        randNum = rand.nextInt(incompleteIndex.size());
+        // color scheme doesn't exist yet, keep trying until no categories left
+        while (color1 == -1 && incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            int randNarrowIndex = -1;
+            int randFullIndex = -1;
+            int clothesCounter = 0;
+            if (narrowList.size() > 0) { // we have items that match a filter of each type
+                randNarrowIndex = rand.nextInt(narrowList.size());
+            } else if (fullList.size() > 0) { // narrowList doesn't have items, but fullList does
+                randFullIndex = rand.nextInt(fullList.size());
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
                 }
             }
-            completed[randIndex2] = 1;
-            ArrayList<Clothes> currList = new ArrayList<>(loadedList.get(randIndex2));
-            ArrayList<Clothes> currList2 = new ArrayList<>(loadedList2.get(randIndex2));
-            // first color selected, set color theme
-            if (color1 == -1) {
-                if (currList2.size() > 0) {
-                    int randIndex = rand.nextInt(currList2.size());
-                    if (hasNonNeutralColors(currList2.get(randIndex).getColors())) {
-                        color1 = getRandNonNeutralColor(currList2.get(randIndex).getColors());
+            if (randNarrowIndex != -1) { // narrowList has items
+                while (narrowList.size() > 0 && clothesCounter < narrowList.size()) {
+                    if (hasNonNeutralColors(narrowList.get(randNarrowIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(narrowList.get(randNarrowIndex).getColors());
+                        color2 = color1 + 4;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 8;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        if (color1 + 4 > 18) {
-                            color2 = 6 + (color1 - 14);
-                        } else {
-                            color2 = color1 + 4;
-                        }
-                        if (color2 + 4 > 18) {
-                            color3 = 6 + (color2 - 14);
-                        } else {
-                            color3 = color2 + 4;
-                        }
-                        if (currList2.get(randIndex).getColors()[color2] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color2] == 1) {
                             ++color2count;
                         }
-                        if (currList2.get(randIndex).getColors()[color3] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color3] == 1) {
                             ++color3count;
                         }
+                        clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < narrowList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randNarrowIndex;
+                        if (randNarrowIndex >= narrowList.size()) {
+                            randNarrowIndex = 0;
+                        }
+                        if (clothesCounter >= narrowList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
-                    clothesList.set(randIndex2, currList2.get(randIndex));
                 }
-                else if (currList.size() > 0) {
-                    int randIndex = rand.nextInt(currList.size());
-                    clothesList.set(randIndex2, currList.get(randIndex));
-                }
-            }
-            // color scheme exists
-            else if (currList2.size() > 0) {
-                ArrayList<Clothes> currList3 = new ArrayList<>(getEligibleArray(color1, color2, color3, currList2));
-                if (currList3.size() > 0) {
-                    int randNum2 = rand.nextInt(currList3.size());
-                    clothesList.set(randIndex2, currList3.get(randNum2));
-                    if (currList3.get(randNum2).getColors()[color1] == 1) {
+            } else if (randFullIndex != -1) { // this category has no items matching each filter type, so pick any if available
+                while (fullList.size() > 0) {
+                    randFullIndex = rand.nextInt(fullList.size());
+                    // if this filter-violating item has a non-violating non-neutral color
+                    if (hasNonNeutralColors(fullList.get(randFullIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(fullList.get(randFullIndex).getColors());
+                        color2 = color1 + 4;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 8;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color3] == 1) {
-                        ++color3count;
+                        if (fullList.get(randFullIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (fullList.get(randFullIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, fullList.get(randFullIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < fullList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randFullIndex;
+                        if (randFullIndex >= fullList.size()) {
+                            randFullIndex = 0;
+                        }
+                        if (clothesCounter >= fullList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, fullList.get(randFullIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
                 }
             }
-            else if (currList.size() > 0) {
-                int randNum3 = rand.nextInt(currList.size());
-                clothesList.set(randIndex2, currList.get(randNum3));
+        }
+        // color scheme exists, choose rest of clothes based on color scheme
+        randNum = rand.nextInt(incompleteIndex.size());
+        while (incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum);
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            ArrayList<Clothes> eligibleList = new ArrayList<>();
+            if (narrowList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, narrowList));
+            } else if (fullList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, fullList));
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
             }
-            remaining.remove(randNum - 1);
+            if (eligibleList.size() > 0) {
+                int randEliIndex = rand.nextInt(eligibleList.size());
+                if (eligibleList.get(randEliIndex).getColors()[color1] == 1) {
+                    ++color1count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color2] == 1) {
+                    ++color2count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color3] == 1) {
+                    ++color3count;
+                }
+                clothesList.set(randIndex, eligibleList.get(randEliIndex));
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            } else { // list consists of only neutral-colored clothes
+                if (narrowList.size() > 0) {
+                    int randNeutIndex = rand.nextInt(narrowList.size());
+                    clothesList.set(randIndex, narrowList.get(randNeutIndex));
+                } else {
+                    int randNeutIndex = rand.nextInt(fullList.size());
+                    clothesList.set(randIndex, fullList.get(randNeutIndex));
+                }
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            }
         }
         ArrayList<Clothes> copyList = new ArrayList<>(clothesList);
         listArray.set(0,copyList);
@@ -1363,156 +1479,214 @@ public class MainActivity extends AppCompatActivity {
         int color1count = 0;
         int color2count = 0;
         int color3count = 0;
-        int[] completed = new int[8];
-        int[] completed2 = new int[8];
-        int totalCompleted = 0;
+        ArrayList<Integer> completedIndex = new ArrayList<>(8); // indices of completed categories
+        ArrayList<Integer> incompleteIndex = new ArrayList<>(8); // '' incomplete categories
         Random rand = new Random();
-        ArrayList<ArrayList<Clothes>> remaining = new ArrayList<>(loadedList);
-        int[] remainingIndex = new int[8];
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
+            // if filter has clothes selected already, that category is completed
             if (!(filtersList.get(i).getType().equals("NONE"))) {
-                completed[i] = 1;
+                completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-                ++totalCompleted;
             }
             else {
-                completed[i] = 0;
+                incompleteIndex.add(i);
             }
-            completed2[i] = 0; // set completed2[] to all 0s
-            remainingIndex[i] = 1; // set remainingIndex[] to all 1s
         }
 
         // pick 1 random category from pre-selected filters
-        for (int i = totalCompleted; i > 0; --i) {
-            randNum = rand.nextInt(i) + 1;
-            int counter = 0;
-            int randIndex = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 1) {
-                    if (completed2[j] == 0) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex = j;
-                    completed2[j] = 1;
-                    j = completed.length;
-                }
-            }
-            // first color selected, set color theme
-            if (color1 == -1) {
+        int counter = 0;
+        int randIndex = 0;
+        if (completedIndex.size() > 0) {
+            randNum = rand.nextInt(completedIndex.size());
+            while (color1 == -1 && counter != completedIndex.size()) {
+                randIndex = completedIndex.get(randNum);
                 if (hasNonNeutralColors(filtersList.get(randIndex).getColors())) {
                     color1 = getRandNonNeutralColor(filtersList.get(randIndex).getColors());
-                    ++color1count;
-                    if (color1 + 5 > 18) {
-                        color2 = 6 + (color1 - 13);
+                    color2 = color1 + 5;
+                    if (color2 > 18) {
+                        color2 = 6 + (color2 % 18);
                     }
-                    else {
-                        color2 = color1 + 5;
+                    color3 = color1 + 7;
+                    if (color3 > 18) {
+                        color3 = 6 + (color3 % 18);
                     }
-                    if (color2 + 7 > 18) {
-                        color3 = 6 + (color2 - 11);
-                    }
-                    else {
-                        color3 = color2 + 7;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                        ++color3count;
+                } else {
+                    ++counter;
+                    ++randNum;
+                    if (randNum >= completedIndex.size()) {
+                        randNum = 0;
                     }
                 }
             }
-            // increase color counts
-            else {
-                if (filtersList.get(randIndex).getColors()[color1] == 1) {
-                    ++color1count;
-                }
-                if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                    ++color2count;
-                }
-                if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                    ++color3count;
-                }
+        }
+        for (int i = 0; i < completedIndex.size(); ++i) {
+            int currIndex = completedIndex.get(i);
+            if (filtersList.get(currIndex).getColors()[color1] == 1) {
+                ++color1count;
             }
-            remaining.remove(randNum - 1);
+            if (filtersList.get(currIndex).getColors()[color2] == 1) {
+                ++color2count;
+            }
+            if (filtersList.get(currIndex).getColors()[color3] == 1) {
+                ++color3count;
+            }
         }
 
         // go through non-pre-selected categories
-        while (remaining.size() > 0) {
-            randNum = rand.nextInt(remaining.size()) + 1;
-            int counter = 0;
-            int randIndex2 = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 0) {
-                    if (remainingIndex[j] == 1) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex2 = j;
-                    remainingIndex[j] = 0;
-                    j = completed.length;
+        ArrayList<Clothes> fullList;
+        ArrayList<Clothes> narrowList;
+        randNum = rand.nextInt(incompleteIndex.size());
+        // color scheme doesn't exist yet, keep trying until no categories left
+        while (color1 == -1 && incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            int randNarrowIndex = -1;
+            int randFullIndex = -1;
+            int clothesCounter = 0;
+            if (narrowList.size() > 0) { // we have items that match a filter of each type
+                randNarrowIndex = rand.nextInt(narrowList.size());
+            } else if (fullList.size() > 0) { // narrowList doesn't have items, but fullList does
+                randFullIndex = rand.nextInt(fullList.size());
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
                 }
             }
-            completed[randIndex2] = 1;
-            ArrayList<Clothes> currList = new ArrayList<>(loadedList.get(randIndex2));
-            ArrayList<Clothes> currList2 = new ArrayList<>(loadedList2.get(randIndex2));
-            // first color selected, set color theme
-            if (color1 == -1) {
-                if (currList2.size() > 0) {
-                    int randIndex = rand.nextInt(currList2.size());
-                    if (hasNonNeutralColors(currList2.get(randIndex).getColors())) {
-                        color1 = getRandNonNeutralColor(currList2.get(randIndex).getColors());
+            if (randNarrowIndex != -1) { // narrowList has items
+                while (narrowList.size() > 0 && clothesCounter < narrowList.size()) {
+                    if (hasNonNeutralColors(narrowList.get(randNarrowIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(narrowList.get(randNarrowIndex).getColors());
+                        color2 = color1 + 5;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 7;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        if (color1 + 5 > 18) {
-                            color2 = 6 + (color1 - 13);
-                        } else {
-                            color2 = color1 + 5;
-                        }
-                        if (color2 + 7 > 18) {
-                            color3 = 6 + (color2 - 11);
-                        } else {
-                            color3 = color2 + 7;
-                        }
-                        if (currList2.get(randIndex).getColors()[color2] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color2] == 1) {
                             ++color2count;
                         }
-                        if (currList2.get(randIndex).getColors()[color3] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color3] == 1) {
                             ++color3count;
                         }
+                        clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < narrowList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randNarrowIndex;
+                        if (randNarrowIndex >= narrowList.size()) {
+                            randNarrowIndex = 0;
+                        }
+                        if (clothesCounter >= narrowList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
-                    clothesList.set(randIndex2, currList2.get(randIndex));
                 }
-                else if (currList.size() > 0) {
-                    int randIndex = rand.nextInt(currList.size());
-                    clothesList.set(randIndex2, currList.get(randIndex));
-                }
-            }
-            // color scheme exists
-            else if (currList2.size() > 0) {
-                ArrayList<Clothes> currList3 = new ArrayList<>(getEligibleArray(color1, color2, color3, currList2));
-                if (currList3.size() > 0) {
-                    int randNum2 = rand.nextInt(currList3.size());
-                    clothesList.set(randIndex2, currList3.get(randNum2));
-                    if (currList3.get(randNum2).getColors()[color1] == 1) {
+            } else if (randFullIndex != -1) { // this category has no items matching each filter type, so pick any if available
+                while (fullList.size() > 0) {
+                    randFullIndex = rand.nextInt(fullList.size());
+                    // if this filter-violating item has a non-violating non-neutral color
+                    if (hasNonNeutralColors(fullList.get(randFullIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(fullList.get(randFullIndex).getColors());
+                        color2 = color1 + 5;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 7;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color3] == 1) {
-                        ++color3count;
+                        if (fullList.get(randFullIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (fullList.get(randFullIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, fullList.get(randFullIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < fullList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randFullIndex;
+                        if (randFullIndex >= fullList.size()) {
+                            randFullIndex = 0;
+                        }
+                        if (clothesCounter >= fullList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, fullList.get(randFullIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
                 }
             }
-            else if (currList.size() > 0) {
-                int randNum3 = rand.nextInt(currList.size());
-                clothesList.set(randIndex2, currList.get(randNum3));
+        }
+        // color scheme exists, choose rest of clothes based on color scheme
+        randNum = rand.nextInt(incompleteIndex.size());
+        while (incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum);
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            ArrayList<Clothes> eligibleList = new ArrayList<>();
+            if (narrowList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, narrowList));
+            } else if (fullList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, fullList));
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
             }
-            remaining.remove(randNum - 1);
+            if (eligibleList.size() > 0) {
+                int randEliIndex = rand.nextInt(eligibleList.size());
+                if (eligibleList.get(randEliIndex).getColors()[color1] == 1) {
+                    ++color1count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color2] == 1) {
+                    ++color2count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color3] == 1) {
+                    ++color3count;
+                }
+                clothesList.set(randIndex, eligibleList.get(randEliIndex));
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            } else { // list consists of only neutral-colored clothes
+                if (narrowList.size() > 0) {
+                    int randNeutIndex = rand.nextInt(narrowList.size());
+                    clothesList.set(randIndex, narrowList.get(randNeutIndex));
+                } else {
+                    int randNeutIndex = rand.nextInt(fullList.size());
+                    clothesList.set(randIndex, fullList.get(randNeutIndex));
+                }
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            }
         }
         ArrayList<Clothes> copyList = new ArrayList<>(clothesList);
         listArray.set(1,copyList);
@@ -1527,139 +1701,214 @@ public class MainActivity extends AppCompatActivity {
         int color1count = 0;
         int color2count = 0;
         int color3count = 0;
-        int[] completed = new int[8];
-        int[] completed2 = new int[8];
-        int totalCompleted = 0;
+        ArrayList<Integer> completedIndex = new ArrayList<>(8); // indices of completed categories
+        ArrayList<Integer> incompleteIndex = new ArrayList<>(8); // '' incomplete categories
         Random rand = new Random();
-        ArrayList<ArrayList<Clothes>> remaining = new ArrayList<>(loadedList);
-        int[] remainingIndex = new int[8];
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
+            // if filter has clothes selected already, that category is completed
             if (!(filtersList.get(i).getType().equals("NONE"))) {
-                completed[i] = 1;
+                completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-                ++totalCompleted;
             }
             else {
-                completed[i] = 0;
+                incompleteIndex.add(i);
             }
-            completed2[i] = 0; // set completed2[] to all 0s
-            remainingIndex[i] = 1; // set remainingIndex[] to all 1s
         }
 
         // pick 1 random category from pre-selected filters
-        for (int i = totalCompleted; i > 0; --i) {
-            randNum = rand.nextInt(i) + 1;
-            int counter = 0;
-            int randIndex = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 1) {
-                    if (completed2[j] == 0) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex = j;
-                    completed2[j] = 1;
-                    j = completed.length;
-                }
-            }
-            // first color selected, set color theme
-            if (color1 == -1) {
+        int counter = 0;
+        int randIndex = 0;
+        if (completedIndex.size() > 0) {
+            randNum = rand.nextInt(completedIndex.size());
+            while (color1 == -1 && counter != completedIndex.size()) {
+                randIndex = completedIndex.get(randNum);
                 if (hasNonNeutralColors(filtersList.get(randIndex).getColors())) {
                     color1 = getRandNonNeutralColor(filtersList.get(randIndex).getColors());
-                    ++color1count;
-                    if (color1 + 6 > 18) {
-                        color2 = 6 + (color1 - 12);
+                    color2 = color1 + 6;
+                    if (color2 > 18) {
+                        color2 = 6 + (color2 % 18);
                     }
-                    else {
-                        color2 = color1 + 6;
+                    color3 = color1 + 6;
+                    if (color3 > 18) {
+                        color3 = 6 + (color3 % 18);
                     }
-                    color3 = color1;
-                    ++color3count;
-                    if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                        ++color2count;
+                } else {
+                    ++counter;
+                    ++randNum;
+                    if (randNum >= completedIndex.size()) {
+                        randNum = 0;
                     }
                 }
             }
-            // increase color counts
-            else {
-                if (filtersList.get(randIndex).getColors()[color1] == 1) {
-                    ++color1count;
-                    ++color3count;
-                }
-                if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                    ++color2count;
-                }
+        }
+        for (int i = 0; i < completedIndex.size(); ++i) {
+            int currIndex = completedIndex.get(i);
+            if (filtersList.get(currIndex).getColors()[color1] == 1) {
+                ++color1count;
             }
-            remaining.remove(randNum - 1);
+            if (filtersList.get(currIndex).getColors()[color2] == 1) {
+                ++color2count;
+            }
+            if (filtersList.get(currIndex).getColors()[color3] == 1) {
+                ++color3count;
+            }
         }
 
         // go through non-pre-selected categories
-        while (remaining.size() > 0) {
-            randNum = rand.nextInt(remaining.size()) + 1;
-            int counter = 0;
-            int randIndex2 = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 0) {
-                    if (remainingIndex[j] == 1) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex2 = j;
-                    remainingIndex[j] = 0;
-                    j = completed.length;
+        ArrayList<Clothes> fullList;
+        ArrayList<Clothes> narrowList;
+        randNum = rand.nextInt(incompleteIndex.size());
+        // color scheme doesn't exist yet, keep trying until no categories left
+        while (color1 == -1 && incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            int randNarrowIndex = -1;
+            int randFullIndex = -1;
+            int clothesCounter = 0;
+            if (narrowList.size() > 0) { // we have items that match a filter of each type
+                randNarrowIndex = rand.nextInt(narrowList.size());
+            } else if (fullList.size() > 0) { // narrowList doesn't have items, but fullList does
+                randFullIndex = rand.nextInt(fullList.size());
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
                 }
             }
-            completed[randIndex2] = 1;
-            ArrayList<Clothes> currList = new ArrayList<>(loadedList.get(randIndex2));
-            ArrayList<Clothes> currList2 = new ArrayList<>(loadedList2.get(randIndex2));
-            // first color selected, set color theme
-            if (color1 == -1) {
-                if (currList2.size() > 0) {
-                    int randIndex = rand.nextInt(currList2.size());
-                    if (hasNonNeutralColors(currList2.get(randIndex).getColors())) {
-                        color1 = getRandNonNeutralColor(currList2.get(randIndex).getColors());
-                        ++color1count;
-                        if (color1 + 6 > 18) {
-                            color2 = 6 + (color1 - 12);
-                        } else {
-                            color2 = color1 + 6;
+            if (randNarrowIndex != -1) { // narrowList has items
+                while (narrowList.size() > 0 && clothesCounter < narrowList.size()) {
+                    if (hasNonNeutralColors(narrowList.get(randNarrowIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(narrowList.get(randNarrowIndex).getColors());
+                        color2 = color1 + 6;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
                         }
-                        color3 = color1;
-                        ++color3count;
-                        if (currList2.get(randIndex).getColors()[color2] == 1) {
+                        color3 = color1 + 6;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
+                        ++color1count;
+                        if (narrowList.get(randNarrowIndex).getColors()[color2] == 1) {
                             ++color2count;
                         }
+                        if (narrowList.get(randNarrowIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < narrowList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randNarrowIndex;
+                        if (randNarrowIndex >= narrowList.size()) {
+                            randNarrowIndex = 0;
+                        }
+                        if (clothesCounter >= narrowList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
-                    clothesList.set(randIndex2, currList2.get(randIndex));
                 }
-                else if (currList.size() > 0) {
-                    int randIndex = rand.nextInt(currList.size());
-                    clothesList.set(randIndex2, currList.get(randIndex));
-                }
-            }
-            // color scheme exists
-            else if (currList2.size() > 0) {
-                ArrayList<Clothes> currList3 = new ArrayList<>(getEligibleArray(color1, color2, color3, currList2));
-                if (currList3.size() > 0) {
-                    int randNum2 = rand.nextInt(currList3.size());
-                    clothesList.set(randIndex2, currList3.get(randNum2));
-                    if (currList3.get(randNum2).getColors()[color1] == 1) {
+            } else if (randFullIndex != -1) { // this category has no items matching each filter type, so pick any if available
+                while (fullList.size() > 0) {
+                    randFullIndex = rand.nextInt(fullList.size());
+                    // if this filter-violating item has a non-violating non-neutral color
+                    if (hasNonNeutralColors(fullList.get(randFullIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(fullList.get(randFullIndex).getColors());
+                        color2 = color1 + 6;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 6;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        ++color3count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color2] == 1) {
-                        ++color2count;
+                        if (fullList.get(randFullIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (fullList.get(randFullIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, fullList.get(randFullIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < fullList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randFullIndex;
+                        if (randFullIndex >= fullList.size()) {
+                            randFullIndex = 0;
+                        }
+                        if (clothesCounter >= fullList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, fullList.get(randFullIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
                 }
             }
-            else if (currList.size() > 0) {
-                int randNum3 = rand.nextInt(currList.size());
-                clothesList.set(randIndex2, currList.get(randNum3));
+        }
+        // color scheme exists, choose rest of clothes based on color scheme
+        randNum = rand.nextInt(incompleteIndex.size());
+        while (incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum);
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            ArrayList<Clothes> eligibleList = new ArrayList<>();
+            if (narrowList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, narrowList));
+            } else if (fullList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, fullList));
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
             }
-            remaining.remove(randNum - 1);
+            if (eligibleList.size() > 0) {
+                int randEliIndex = rand.nextInt(eligibleList.size());
+                if (eligibleList.get(randEliIndex).getColors()[color1] == 1) {
+                    ++color1count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color2] == 1) {
+                    ++color2count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color3] == 1) {
+                    ++color3count;
+                }
+                clothesList.set(randIndex, eligibleList.get(randEliIndex));
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            } else { // list consists of only neutral-colored clothes
+                if (narrowList.size() > 0) {
+                    int randNeutIndex = rand.nextInt(narrowList.size());
+                    clothesList.set(randIndex, narrowList.get(randNeutIndex));
+                } else {
+                    int randNeutIndex = rand.nextInt(fullList.size());
+                    clothesList.set(randIndex, fullList.get(randNeutIndex));
+                }
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            }
         }
         ArrayList<Clothes> copyList = new ArrayList<>(clothesList);
         listArray.set(2,copyList);
@@ -1674,156 +1923,214 @@ public class MainActivity extends AppCompatActivity {
         int color1count = 0;
         int color2count = 0;
         int color3count = 0;
-        int[] completed = new int[8];
-        int[] completed2 = new int[8];
-        int totalCompleted = 0;
+        ArrayList<Integer> completedIndex = new ArrayList<>(8); // indices of completed categories
+        ArrayList<Integer> incompleteIndex = new ArrayList<>(8); // '' incomplete categories
         Random rand = new Random();
-        ArrayList<ArrayList<Clothes>> remaining = new ArrayList<>(loadedList);
-        int[] remainingIndex = new int[8];
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
+            // if filter has clothes selected already, that category is completed
             if (!(filtersList.get(i).getType().equals("NONE"))) {
-                completed[i] = 1;
+                completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-                ++totalCompleted;
             }
             else {
-                completed[i] = 0;
+                incompleteIndex.add(i);
             }
-            completed2[i] = 0; // set completed2[] to all 0s
-            remainingIndex[i] = 1; // set remainingIndex[] to all 1s
         }
 
         // pick 1 random category from pre-selected filters
-        for (int i = totalCompleted; i > 0; --i) {
-            randNum = rand.nextInt(i) + 1;
-            int counter = 0;
-            int randIndex = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 1) {
-                    if (completed2[j] == 0) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex = j;
-                    completed2[j] = 1;
-                    j = completed.length;
-                }
-            }
-            // first color selected, set color theme
-            if (color1 == -1) {
+        int counter = 0;
+        int randIndex = 0;
+        if (completedIndex.size() > 0) {
+            randNum = rand.nextInt(completedIndex.size());
+            while (color1 == -1 && counter != completedIndex.size()) {
+                randIndex = completedIndex.get(randNum);
                 if (hasNonNeutralColors(filtersList.get(randIndex).getColors())) {
                     color1 = getRandNonNeutralColor(filtersList.get(randIndex).getColors());
-                    ++color1count;
-                    if (color1 + 2 > 18) {
-                        color2 = 6 + (color1 - 16);
+                    color2 = color1 + 2;
+                    if (color2 > 18) {
+                        color2 = 6 + (color2 % 18);
                     }
-                    else {
-                        color2 = color1 + 2;
+                    color3 = color1 + 2;
+                    if (color3 > 18) {
+                        color3 = 6 + (color3 % 18);
                     }
-                    if (color2 - 2 < 7) {
-                        color3 = 19 - (9 - color2);
-                    }
-                    else {
-                        color3 = color2 - 2;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                        ++color3count;
+                } else {
+                    ++counter;
+                    ++randNum;
+                    if (randNum >= completedIndex.size()) {
+                        randNum = 0;
                     }
                 }
             }
-            // increase color counts
-            else {
-                if (filtersList.get(randIndex).getColors()[color1] == 1) {
-                    ++color1count;
-                }
-                if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                    ++color2count;
-                }
-                if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                    ++color3count;
-                }
+        }
+        for (int i = 0; i < completedIndex.size(); ++i) {
+            int currIndex = completedIndex.get(i);
+            if (filtersList.get(currIndex).getColors()[color1] == 1) {
+                ++color1count;
             }
-            remaining.remove(randNum - 1);
+            if (filtersList.get(currIndex).getColors()[color2] == 1) {
+                ++color2count;
+            }
+            if (filtersList.get(currIndex).getColors()[color3] == 1) {
+                ++color3count;
+            }
         }
 
         // go through non-pre-selected categories
-        while (remaining.size() > 0) {
-            randNum = rand.nextInt(remaining.size()) + 1;
-            int counter = 0;
-            int randIndex2 = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 0) {
-                    if (remainingIndex[j] == 1) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex2 = j;
-                    remainingIndex[j] = 0;
-                    j = completed.length;
+        ArrayList<Clothes> fullList;
+        ArrayList<Clothes> narrowList;
+        randNum = rand.nextInt(incompleteIndex.size());
+        // color scheme doesn't exist yet, keep trying until no categories left
+        while (color1 == -1 && incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            int randNarrowIndex = -1;
+            int randFullIndex = -1;
+            int clothesCounter = 0;
+            if (narrowList.size() > 0) { // we have items that match a filter of each type
+                randNarrowIndex = rand.nextInt(narrowList.size());
+            } else if (fullList.size() > 0) { // narrowList doesn't have items, but fullList does
+                randFullIndex = rand.nextInt(fullList.size());
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
                 }
             }
-            completed[randIndex2] = 1;
-            ArrayList<Clothes> currList = new ArrayList<>(loadedList.get(randIndex2));
-            ArrayList<Clothes> currList2 = new ArrayList<>(loadedList2.get(randIndex2));
-            // first color selected, set color theme
-            if (color1 == -1) {
-                if (currList2.size() > 0) {
-                    int randIndex = rand.nextInt(currList2.size());
-                    if (hasNonNeutralColors(currList2.get(randIndex).getColors())) {
-                        color1 = getRandNonNeutralColor(currList2.get(randIndex).getColors());
+            if (randNarrowIndex != -1) { // narrowList has items
+                while (narrowList.size() > 0 && clothesCounter < narrowList.size()) {
+                    if (hasNonNeutralColors(narrowList.get(randNarrowIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(narrowList.get(randNarrowIndex).getColors());
+                        color2 = color1 + 2;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 2;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        if (color1 + 2 > 18) {
-                            color2 = 6 + (color1 - 16);
-                        } else {
-                            color2 = color1 + 2;
-                        }
-                        if (color2 - 2 < 7) {
-                            color3 = 19 - (9 - color2);
-                        } else {
-                            color3 = color2 - 2;
-                        }
-                        if (currList2.get(randIndex).getColors()[color2] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color2] == 1) {
                             ++color2count;
                         }
-                        if (currList2.get(randIndex).getColors()[color3] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color3] == 1) {
                             ++color3count;
                         }
+                        clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < narrowList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randNarrowIndex;
+                        if (randNarrowIndex >= narrowList.size()) {
+                            randNarrowIndex = 0;
+                        }
+                        if (clothesCounter >= narrowList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
-                    clothesList.set(randIndex2, currList2.get(randIndex));
                 }
-                else if (currList.size() > 0) {
-                    int randIndex = rand.nextInt(currList.size());
-                    clothesList.set(randIndex2, currList.get(randIndex));
-                }
-            }
-            // color scheme exists
-            else if (currList2.size() > 0) {
-                ArrayList<Clothes> currList3 = new ArrayList<>(getEligibleArray(color1, color2, color3, currList2));
-                if (currList3.size() > 0) {
-                    int randNum2 = rand.nextInt(currList3.size());
-                    clothesList.set(randIndex2, currList3.get(randNum2));
-                    if (currList3.get(randNum2).getColors()[color1] == 1) {
+            } else if (randFullIndex != -1) { // this category has no items matching each filter type, so pick any if available
+                while (fullList.size() > 0) {
+                    randFullIndex = rand.nextInt(fullList.size());
+                    // if this filter-violating item has a non-violating non-neutral color
+                    if (hasNonNeutralColors(fullList.get(randFullIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(fullList.get(randFullIndex).getColors());
+                        color2 = color1 + 2;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 2;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color3] == 1) {
-                        ++color3count;
+                        if (fullList.get(randFullIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (fullList.get(randFullIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, fullList.get(randFullIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < fullList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randFullIndex;
+                        if (randFullIndex >= fullList.size()) {
+                            randFullIndex = 0;
+                        }
+                        if (clothesCounter >= fullList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, fullList.get(randFullIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
                 }
             }
-            else if (currList.size() > 0) {
-                int randNum3 = rand.nextInt(currList.size());
-                clothesList.set(randIndex2, currList.get(randNum3));
+        }
+        // color scheme exists, choose rest of clothes based on color scheme
+        randNum = rand.nextInt(incompleteIndex.size());
+        while (incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum);
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            ArrayList<Clothes> eligibleList = new ArrayList<>();
+            if (narrowList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, narrowList));
+            } else if (fullList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, fullList));
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
             }
-            remaining.remove(randNum - 1);
+            if (eligibleList.size() > 0) {
+                int randEliIndex = rand.nextInt(eligibleList.size());
+                if (eligibleList.get(randEliIndex).getColors()[color1] == 1) {
+                    ++color1count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color2] == 1) {
+                    ++color2count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color3] == 1) {
+                    ++color3count;
+                }
+                clothesList.set(randIndex, eligibleList.get(randEliIndex));
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            } else { // list consists of only neutral-colored clothes
+                if (narrowList.size() > 0) {
+                    int randNeutIndex = rand.nextInt(narrowList.size());
+                    clothesList.set(randIndex, narrowList.get(randNeutIndex));
+                } else {
+                    int randNeutIndex = rand.nextInt(fullList.size());
+                    clothesList.set(randIndex, fullList.get(randNeutIndex));
+                }
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            }
         }
         ArrayList<Clothes> copyList = new ArrayList<>(clothesList);
         listArray.set(3,copyList);
@@ -1838,156 +2145,214 @@ public class MainActivity extends AppCompatActivity {
         int color1count = 0;
         int color2count = 0;
         int color3count = 0;
-        int[] completed = new int[8];
-        int[] completed2 = new int[8];
-        int totalCompleted = 0;
+        ArrayList<Integer> completedIndex = new ArrayList<>(8); // indices of completed categories
+        ArrayList<Integer> incompleteIndex = new ArrayList<>(8); // '' incomplete categories
         Random rand = new Random();
-        ArrayList<ArrayList<Clothes>> remaining = new ArrayList<>(loadedList);
-        int[] remainingIndex = new int[8];
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
+            // if filter has clothes selected already, that category is completed
             if (!(filtersList.get(i).getType().equals("NONE"))) {
-                completed[i] = 1;
+                completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-                ++totalCompleted;
             }
             else {
-                completed[i] = 0;
+                incompleteIndex.add(i);
             }
-            completed2[i] = 0; // set completed2[] to all 0s
-            remainingIndex[i] = 1; // set remainingIndex[] to all 1s
         }
 
         // pick 1 random category from pre-selected filters
-        for (int i = totalCompleted; i > 0; --i) {
-            randNum = rand.nextInt(i) + 1;
-            int counter = 0;
-            int randIndex = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 1) {
-                    if (completed2[j] == 0) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex = j;
-                    completed2[j] = 1;
-                    j = completed.length;
-                }
-            }
-            // first color selected, set color theme
-            if (color1 == -1) {
+        int counter = 0;
+        int randIndex = 0;
+        if (completedIndex.size() > 0) {
+            randNum = rand.nextInt(completedIndex.size());
+            while (color1 == -1 && counter != completedIndex.size()) {
+                randIndex = completedIndex.get(randNum);
                 if (hasNonNeutralColors(filtersList.get(randIndex).getColors())) {
                     color1 = getRandNonNeutralColor(filtersList.get(randIndex).getColors());
-                    ++color1count;
-                    if (color1 + 1 > 18) {
-                        color2 = 7;
+                    color2 = color1 + 1;
+                    if (color2 > 18) {
+                        color2 = 6 + (color2 % 18);
                     }
-                    else {
-                        color2 = color1 + 1;
+                    color3 = color1 + 1;
+                    if (color3 > 18) {
+                        color3 = 6 + (color3 % 18);
                     }
-                    if (color2 - 1 < 7) {
-                        color3 = 18;
-                    }
-                    else {
-                        color3 = color2 - 1;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                        ++color3count;
+                } else {
+                    ++counter;
+                    ++randNum;
+                    if (randNum >= completedIndex.size()) {
+                        randNum = 0;
                     }
                 }
             }
-            // increase color counts
-            else {
-                if (filtersList.get(randIndex).getColors()[color1] == 1) {
-                    ++color1count;
-                }
-                if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                    ++color2count;
-                }
-                if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                    ++color3count;
-                }
+        }
+        for (int i = 0; i < completedIndex.size(); ++i) {
+            int currIndex = completedIndex.get(i);
+            if (filtersList.get(currIndex).getColors()[color1] == 1) {
+                ++color1count;
             }
-            remaining.remove(randNum - 1);
+            if (filtersList.get(currIndex).getColors()[color2] == 1) {
+                ++color2count;
+            }
+            if (filtersList.get(currIndex).getColors()[color3] == 1) {
+                ++color3count;
+            }
         }
 
         // go through non-pre-selected categories
-        while (remaining.size() > 0) {
-            randNum = rand.nextInt(remaining.size()) + 1;
-            int counter = 0;
-            int randIndex2 = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 0) {
-                    if (remainingIndex[j] == 1) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex2 = j;
-                    remainingIndex[j] = 0;
-                    j = completed.length;
+        ArrayList<Clothes> fullList;
+        ArrayList<Clothes> narrowList;
+        randNum = rand.nextInt(incompleteIndex.size());
+        // color scheme doesn't exist yet, keep trying until no categories left
+        while (color1 == -1 && incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            int randNarrowIndex = -1;
+            int randFullIndex = -1;
+            int clothesCounter = 0;
+            if (narrowList.size() > 0) { // we have items that match a filter of each type
+                randNarrowIndex = rand.nextInt(narrowList.size());
+            } else if (fullList.size() > 0) { // narrowList doesn't have items, but fullList does
+                randFullIndex = rand.nextInt(fullList.size());
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
                 }
             }
-            completed[randIndex2] = 1;
-            ArrayList<Clothes> currList = new ArrayList<>(loadedList.get(randIndex2));
-            ArrayList<Clothes> currList2 = new ArrayList<>(loadedList2.get(randIndex2));
-            // first color selected, set color theme
-            if (color1 == -1) {
-                if (currList2.size() > 0) {
-                    int randIndex = rand.nextInt(currList2.size());
-                    if (hasNonNeutralColors(currList2.get(randIndex).getColors())) {
-                        color1 = getRandNonNeutralColor(currList2.get(randIndex).getColors());
+            if (randNarrowIndex != -1) { // narrowList has items
+                while (narrowList.size() > 0 && clothesCounter < narrowList.size()) {
+                    if (hasNonNeutralColors(narrowList.get(randNarrowIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(narrowList.get(randNarrowIndex).getColors());
+                        color2 = color1 + 1;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 1;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        if (color1 + 1 > 18) {
-                            color2 = 7;
-                        } else {
-                            color2 = color1 + 1;
-                        }
-                        if (color2 - 1 < 7) {
-                            color3 = 18;
-                        } else {
-                            color3 = color2 - 1;
-                        }
-                        if (currList2.get(randIndex).getColors()[color2] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color2] == 1) {
                             ++color2count;
                         }
-                        if (currList2.get(randIndex).getColors()[color3] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color3] == 1) {
                             ++color3count;
                         }
+                        clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < narrowList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randNarrowIndex;
+                        if (randNarrowIndex >= narrowList.size()) {
+                            randNarrowIndex = 0;
+                        }
+                        if (clothesCounter >= narrowList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
-                    clothesList.set(randIndex2, currList2.get(randIndex));
                 }
-                else if (currList.size() > 0) {
-                    int randIndex = rand.nextInt(currList.size());
-                    clothesList.set(randIndex2, currList.get(randIndex));
-                }
-            }
-            // color scheme exists
-            else if (currList2.size() > 0) {
-                ArrayList<Clothes> currList3 = new ArrayList<>(getEligibleArray(color1, color2, color3, currList2));
-                if (currList3.size() > 0) {
-                    int randNum2 = rand.nextInt(currList3.size());
-                    clothesList.set(randIndex2, currList3.get(randNum2));
-                    if (currList3.get(randNum2).getColors()[color1] == 1) {
+            } else if (randFullIndex != -1) { // this category has no items matching each filter type, so pick any if available
+                while (fullList.size() > 0) {
+                    randFullIndex = rand.nextInt(fullList.size());
+                    // if this filter-violating item has a non-violating non-neutral color
+                    if (hasNonNeutralColors(fullList.get(randFullIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(fullList.get(randFullIndex).getColors());
+                        color2 = color1 + 1;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 1;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color3] == 1) {
-                        ++color3count;
+                        if (fullList.get(randFullIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (fullList.get(randFullIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, fullList.get(randFullIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < fullList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randFullIndex;
+                        if (randFullIndex >= fullList.size()) {
+                            randFullIndex = 0;
+                        }
+                        if (clothesCounter >= fullList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, fullList.get(randFullIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
                 }
             }
-            else if (currList.size() > 0) {
-                int randNum3 = rand.nextInt(currList.size());
-                clothesList.set(randIndex2, currList.get(randNum3));
+        }
+        // color scheme exists, choose rest of clothes based on color scheme
+        randNum = rand.nextInt(incompleteIndex.size());
+        while (incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum);
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            ArrayList<Clothes> eligibleList = new ArrayList<>();
+            if (narrowList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, narrowList));
+            } else if (fullList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, fullList));
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
             }
-            remaining.remove(randNum - 1);
+            if (eligibleList.size() > 0) {
+                int randEliIndex = rand.nextInt(eligibleList.size());
+                if (eligibleList.get(randEliIndex).getColors()[color1] == 1) {
+                    ++color1count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color2] == 1) {
+                    ++color2count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color3] == 1) {
+                    ++color3count;
+                }
+                clothesList.set(randIndex, eligibleList.get(randEliIndex));
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            } else { // list consists of only neutral-colored clothes
+                if (narrowList.size() > 0) {
+                    int randNeutIndex = rand.nextInt(narrowList.size());
+                    clothesList.set(randIndex, narrowList.get(randNeutIndex));
+                } else {
+                    int randNeutIndex = rand.nextInt(fullList.size());
+                    clothesList.set(randIndex, fullList.get(randNeutIndex));
+                }
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            }
         }
         ArrayList<Clothes> copyList = new ArrayList<>(clothesList);
         listArray.set(4,copyList);
@@ -2002,156 +2367,214 @@ public class MainActivity extends AppCompatActivity {
         int color1count = 0;
         int color2count = 0;
         int color3count = 0;
-        int[] completed = new int[8];
-        int[] completed2 = new int[8];
-        int totalCompleted = 0;
+        ArrayList<Integer> completedIndex = new ArrayList<>(8); // indices of completed categories
+        ArrayList<Integer> incompleteIndex = new ArrayList<>(8); // '' incomplete categories
         Random rand = new Random();
-        ArrayList<ArrayList<Clothes>> remaining = new ArrayList<>(loadedList);
-        int[] remainingIndex = new int[8];
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
+            // if filter has clothes selected already, that category is completed
             if (!(filtersList.get(i).getType().equals("NONE"))) {
-                completed[i] = 1;
+                completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-                ++totalCompleted;
             }
             else {
-                completed[i] = 0;
+                incompleteIndex.add(i);
             }
-            completed2[i] = 0; // set completed2[] to all 0s
-            remainingIndex[i] = 1; // set remainingIndex[] to all 1s
         }
 
         // pick 1 random category from pre-selected filters
-        for (int i = totalCompleted; i > 0; --i) {
-            randNum = rand.nextInt(i) + 1;
-            int counter = 0;
-            int randIndex = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 1) {
-                    if (completed2[j] == 0) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex = j;
-                    completed2[j] = 1;
-                    j = completed.length;
-                }
-            }
-            // first color selected, set color theme
-            if (color1 == -1) {
+        int counter = 0;
+        int randIndex = 0;
+        if (completedIndex.size() > 0) {
+            randNum = rand.nextInt(completedIndex.size());
+            while (color1 == -1 && counter != completedIndex.size()) {
+                randIndex = completedIndex.get(randNum);
                 if (hasNonNeutralColors(filtersList.get(randIndex).getColors())) {
                     color1 = getRandNonNeutralColor(filtersList.get(randIndex).getColors());
-                    ++color1count;
-                    if (color1 + 4 > 18) {
-                        color2 = 6 + (color1 - 14);
+                    color2 = color1 + 4;
+                    if (color2 > 18) {
+                        color2 = 6 + (color2 % 18);
                     }
-                    else {
-                        color2 = color1 + 4;
+                    color3 = color1 + 8;
+                    if (color3 > 18) {
+                        color3 = 6 + (color3 % 18);
                     }
-                    if (color2 + 4 > 18) {
-                        color3 = 6 + (color2 - 14);
-                    }
-                    else {
-                        color3 = color2 + 4;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                        ++color3count;
+                } else {
+                    ++counter;
+                    ++randNum;
+                    if (randNum >= completedIndex.size()) {
+                        randNum = 0;
                     }
                 }
             }
-            // increase color counts
-            else {
-                if (filtersList.get(randIndex).getColors()[color1] == 1) {
-                    ++color1count;
-                }
-                if (filtersList.get(randIndex).getColors()[color2] == 1) {
-                    ++color2count;
-                }
-                if (filtersList.get(randIndex).getColors()[color3] == 1) {
-                    ++color3count;
-                }
+        }
+        for (int i = 0; i < completedIndex.size(); ++i) {
+            int currIndex = completedIndex.get(i);
+            if (filtersList.get(currIndex).getColors()[color1] == 1) {
+                ++color1count;
             }
-            remaining.remove(randNum - 1);
+            if (filtersList.get(currIndex).getColors()[color2] == 1) {
+                ++color2count;
+            }
+            if (filtersList.get(currIndex).getColors()[color3] == 1) {
+                ++color3count;
+            }
         }
 
         // go through non-pre-selected categories
-        while (remaining.size() > 0) {
-            randNum = rand.nextInt(remaining.size()) + 1;
-            int counter = 0;
-            int randIndex2 = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 0) {
-                    if (remainingIndex[j] == 1) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex2 = j;
-                    remainingIndex[j] = 0;
-                    j = completed.length;
+        ArrayList<Clothes> fullList;
+        ArrayList<Clothes> narrowList;
+        randNum = rand.nextInt(incompleteIndex.size());
+        // color scheme doesn't exist yet, keep trying until no categories left
+        while (color1 == -1 && incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            int randNarrowIndex = -1;
+            int randFullIndex = -1;
+            int clothesCounter = 0;
+            if (narrowList.size() > 0) { // we have items that match a filter of each type
+                randNarrowIndex = rand.nextInt(narrowList.size());
+            } else if (fullList.size() > 0) { // narrowList doesn't have items, but fullList does
+                randFullIndex = rand.nextInt(fullList.size());
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
                 }
             }
-            completed[randIndex2] = 1;
-            ArrayList<Clothes> currList = new ArrayList<>(loadedList.get(randIndex2));
-            ArrayList<Clothes> currList2 = new ArrayList<>(loadedList2.get(randIndex2));
-            // first color selected, set color theme
-            if (color1 == -1) {
-                if (currList2.size() > 0) {
-                    int randIndex = rand.nextInt(currList2.size());
-                    if (hasNonNeutralColors(currList2.get(randIndex).getColors())) {
-                        color1 = getRandNonNeutralColor(currList2.get(randIndex).getColors());
+            if (randNarrowIndex != -1) { // narrowList has items
+                while (narrowList.size() > 0 && clothesCounter < narrowList.size()) {
+                    if (hasNonNeutralColors(narrowList.get(randNarrowIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(narrowList.get(randNarrowIndex).getColors());
+                        color2 = color1 + 4;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 8;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        if (color1 + 4 > 18) {
-                            color2 = 6 + (color1 - 14);
-                        } else {
-                            color2 = color1 + 4;
-                        }
-                        if (color2 + 4 > 18) {
-                            color3 = 6 + (color2 - 14);
-                        } else {
-                            color3 = color2 + 4;
-                        }
-                        if (currList2.get(randIndex).getColors()[color2] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color2] == 1) {
                             ++color2count;
                         }
-                        if (currList2.get(randIndex).getColors()[color3] == 1) {
+                        if (narrowList.get(randNarrowIndex).getColors()[color3] == 1) {
                             ++color3count;
                         }
+                        clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < narrowList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randNarrowIndex;
+                        if (randNarrowIndex >= narrowList.size()) {
+                            randNarrowIndex = 0;
+                        }
+                        if (clothesCounter >= narrowList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
-                    clothesList.set(randIndex2, currList2.get(randIndex));
                 }
-                else if (currList.size() > 0) {
-                    int randIndex = rand.nextInt(currList.size());
-                    clothesList.set(randIndex2, currList.get(randIndex));
-                }
-            }
-            // color scheme exists
-            else if (currList2.size() > 0) {
-                ArrayList<Clothes> currList3 = new ArrayList<>(getEligibleArray(color1, color2, color3, currList2));
-                if (currList3.size() > 0) {
-                    int randNum2 = rand.nextInt(currList3.size());
-                    clothesList.set(randIndex2, currList3.get(randNum2));
-                    if (currList3.get(randNum2).getColors()[color1] == 1) {
+            } else if (randFullIndex != -1) { // this category has no items matching each filter type, so pick any if available
+                while (fullList.size() > 0) {
+                    randFullIndex = rand.nextInt(fullList.size());
+                    // if this filter-violating item has a non-violating non-neutral color
+                    if (hasNonNeutralColors(fullList.get(randFullIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(fullList.get(randFullIndex).getColors());
+                        color2 = color1 + 4;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 8;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color2] == 1) {
-                        ++color2count;
-                    }
-                    if (currList3.get(randNum2).getColors()[color3] == 1) {
-                        ++color3count;
+                        if (fullList.get(randFullIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (fullList.get(randFullIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, fullList.get(randFullIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < fullList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randFullIndex;
+                        if (randFullIndex >= fullList.size()) {
+                            randFullIndex = 0;
+                        }
+                        if (clothesCounter >= fullList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, fullList.get(randFullIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
                 }
             }
-            else if (currList.size() > 0) {
-                int randNum3 = rand.nextInt(currList.size());
-                clothesList.set(randIndex2, currList.get(randNum3));
+        }
+        // color scheme exists, choose rest of clothes based on color scheme
+        randNum = rand.nextInt(incompleteIndex.size());
+        while (incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum);
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            ArrayList<Clothes> eligibleList = new ArrayList<>();
+            if (narrowList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, narrowList));
+            } else if (fullList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, fullList));
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
             }
-            remaining.remove(randNum - 1);
+            if (eligibleList.size() > 0) {
+                int randEliIndex = rand.nextInt(eligibleList.size());
+                if (eligibleList.get(randEliIndex).getColors()[color1] == 1) {
+                    ++color1count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color2] == 1) {
+                    ++color2count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color3] == 1) {
+                    ++color3count;
+                }
+                clothesList.set(randIndex, eligibleList.get(randEliIndex));
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            } else { // list consists of only neutral-colored clothes
+                if (narrowList.size() > 0) {
+                    int randNeutIndex = rand.nextInt(narrowList.size());
+                    clothesList.set(randIndex, narrowList.get(randNeutIndex));
+                } else {
+                    int randNeutIndex = rand.nextInt(fullList.size());
+                    clothesList.set(randIndex, fullList.get(randNeutIndex));
+                }
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            }
         }
         ArrayList<Clothes> copyList = new ArrayList<>(clothesList);
         listArray.set(5,copyList);
@@ -2166,122 +2589,214 @@ public class MainActivity extends AppCompatActivity {
         int color1count = 0;
         int color2count = 0;
         int color3count = 0;
-        int[] completed = new int[8];
-        int[] completed2 = new int[8];
-        int totalCompleted = 0;
+        ArrayList<Integer> completedIndex = new ArrayList<>(8); // indices of completed categories
+        ArrayList<Integer> incompleteIndex = new ArrayList<>(8); // '' incomplete categories
         Random rand = new Random();
-        ArrayList<ArrayList<Clothes>> remaining = new ArrayList<>(loadedList);
-        int[] remainingIndex = new int[8];
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
+            // if filter has clothes selected already, that category is completed
             if (!(filtersList.get(i).getType().equals("NONE"))) {
-                completed[i] = 1;
+                completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-                ++totalCompleted;
             }
             else {
-                completed[i] = 0;
+                incompleteIndex.add(i);
             }
-            completed2[i] = 0; // set completed2[] to all 0s
-            remainingIndex[i] = 1; // set remainingIndex[] to all 1s
         }
 
         // pick 1 random category from pre-selected filters
-        for (int i = totalCompleted; i > 0; --i) {
-            randNum = rand.nextInt(i) + 1;
-            int counter = 0;
-            int randIndex = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 1) {
-                    if (completed2[j] == 0) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex = j;
-                    completed2[j] = 1;
-                    j = completed.length;
-                }
-            }
-            // first color selected, set color theme
-            if (color1 == -1) {
+        int counter = 0;
+        int randIndex = 0;
+        if (completedIndex.size() > 0) {
+            randNum = rand.nextInt(completedIndex.size());
+            while (color1 == -1 && counter != completedIndex.size()) {
+                randIndex = completedIndex.get(randNum);
                 if (hasNonNeutralColors(filtersList.get(randIndex).getColors())) {
                     color1 = getRandNonNeutralColor(filtersList.get(randIndex).getColors());
-                    ++color1count;
-                    color2 = color1;
-                    color3 = color1;
-                    ++color2count;
-                    ++color3count;
+                    color2 = color1 + 0;
+                    if (color2 > 18) {
+                        color2 = 6 + (color2 % 18);
+                    }
+                    color3 = color1 + 0;
+                    if (color3 > 18) {
+                        color3 = 6 + (color3 % 18);
+                    }
+                } else {
+                    ++counter;
+                    ++randNum;
+                    if (randNum >= completedIndex.size()) {
+                        randNum = 0;
+                    }
                 }
             }
-            // increase color counts
-            else {
-                if (filtersList.get(randIndex).getColors()[color1] == 1) {
-                    ++color1count;
-                    ++color2count;
-                    ++color3count;
-                }
+        }
+        for (int i = 0; i < completedIndex.size(); ++i) {
+            int currIndex = completedIndex.get(i);
+            if (filtersList.get(currIndex).getColors()[color1] == 1) {
+                ++color1count;
             }
-            remaining.remove(randNum - 1);
+            if (filtersList.get(currIndex).getColors()[color2] == 1) {
+                ++color2count;
+            }
+            if (filtersList.get(currIndex).getColors()[color3] == 1) {
+                ++color3count;
+            }
         }
 
         // go through non-pre-selected categories
-        while (remaining.size() > 0) {
-            randNum = rand.nextInt(remaining.size()) + 1;
-            int counter = 0;
-            int randIndex2 = 0;
-            for (int j = 0; j < completed.length; ++j) {
-                if (completed[j] == 0) {
-                    if (remainingIndex[j] == 1) {
-                        ++counter;
-                    }
-                }
-                if (counter == randNum) {
-                    randIndex2 = j;
-                    remainingIndex[j] = 0;
-                    j = completed.length;
+        ArrayList<Clothes> fullList;
+        ArrayList<Clothes> narrowList;
+        randNum = rand.nextInt(incompleteIndex.size());
+        // color scheme doesn't exist yet, keep trying until no categories left
+        while (color1 == -1 && incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            int randNarrowIndex = -1;
+            int randFullIndex = -1;
+            int clothesCounter = 0;
+            if (narrowList.size() > 0) { // we have items that match a filter of each type
+                randNarrowIndex = rand.nextInt(narrowList.size());
+            } else if (fullList.size() > 0) { // narrowList doesn't have items, but fullList does
+                randFullIndex = rand.nextInt(fullList.size());
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
                 }
             }
-            completed[randIndex2] = 1;
-            ArrayList<Clothes> currList = new ArrayList<>(loadedList.get(randIndex2));
-            ArrayList<Clothes> currList2 = new ArrayList<>(loadedList2.get(randIndex2));
-            // first color selected, set color theme
-            if (color1 == -1) {
-                if (currList2.size() > 0) {
-                    int randIndex = rand.nextInt(currList2.size());
-                    if (hasNonNeutralColors(currList2.get(randIndex).getColors())) {
-                        color1 = getRandNonNeutralColor(currList2.get(randIndex).getColors());
+            if (randNarrowIndex != -1) { // narrowList has items
+                while (narrowList.size() > 0 && clothesCounter < narrowList.size()) {
+                    if (hasNonNeutralColors(narrowList.get(randNarrowIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(narrowList.get(randNarrowIndex).getColors());
+                        color2 = color1 + 0;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 0;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        color2 = color1;
-                        color3 = color1;
-                        ++color2count;
-                        ++color3count;
+                        if (narrowList.get(randNarrowIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (narrowList.get(randNarrowIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < narrowList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randNarrowIndex;
+                        if (randNarrowIndex >= narrowList.size()) {
+                            randNarrowIndex = 0;
+                        }
+                        if (clothesCounter >= narrowList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, narrowList.get(randNarrowIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
-                    clothesList.set(randIndex2, currList2.get(randIndex));
                 }
-                else if (currList.size() > 0) {
-                    int randIndex = rand.nextInt(currList.size());
-                    clothesList.set(randIndex2, currList.get(randIndex));
-                }
-            }
-            // color scheme exists
-            else if (currList2.size() > 0) {
-                ArrayList<Clothes> currList3 = new ArrayList<>(getEligibleArray(color1, color2, color3, currList2));
-                if (currList3.size() > 0) {
-                    int randNum2 = rand.nextInt(currList3.size());
-                    clothesList.set(randIndex2, currList3.get(randNum2));
-                    if (currList3.get(randNum2).getColors()[color1] == 1) {
+            } else if (randFullIndex != -1) { // this category has no items matching each filter type, so pick any if available
+                while (fullList.size() > 0) {
+                    randFullIndex = rand.nextInt(fullList.size());
+                    // if this filter-violating item has a non-violating non-neutral color
+                    if (hasNonNeutralColors(fullList.get(randFullIndex).getColors())) {
+                        color1 = getRandNonNeutralColor(fullList.get(randFullIndex).getColors());
+                        color2 = color1 + 0;
+                        if (color2 > 18) {
+                            color2 = 6 + (color2 % 18);
+                        }
+                        color3 = color1 + 0;
+                        if (color3 > 18) {
+                            color3 = 6 + (color3 % 18);
+                        }
                         ++color1count;
-                        ++color2count;
-                        ++color3count;
+                        if (fullList.get(randFullIndex).getColors()[color2] == 1) {
+                            ++color2count;
+                        }
+                        if (fullList.get(randFullIndex).getColors()[color3] == 1) {
+                            ++color3count;
+                        }
+                        clothesList.set(randIndex, fullList.get(randFullIndex));
+                        completedIndex.add(incompleteIndex.get(randNum));
+                        incompleteIndex.remove(randNum);
+                        break;
+                    } else if (clothesCounter < fullList.size()) { // didn't find non-neutral color, go through clothes in this category
+                        ++clothesCounter;
+                        ++randFullIndex;
+                        if (randFullIndex >= fullList.size()) {
+                            randFullIndex = 0;
+                        }
+                        if (clothesCounter >= fullList.size()) { // no color set, choose any, move to the next category
+                            clothesList.set(randIndex, fullList.get(randFullIndex));
+                            completedIndex.add(incompleteIndex.get(randNum));
+                            incompleteIndex.remove(randNum);
+                            if (incompleteIndex.size() > 0) {
+                                randNum = rand.nextInt(incompleteIndex.size());
+                            }
+                        }
                     }
                 }
             }
-            else if (currList.size() > 0) {
-                int randNum3 = rand.nextInt(currList.size());
-                clothesList.set(randIndex2, currList.get(randNum3));
+        }
+        // color scheme exists, choose rest of clothes based on color scheme
+        randNum = rand.nextInt(incompleteIndex.size());
+        while (incompleteIndex.size() > 0) {
+            randIndex = incompleteIndex.get(randNum);
+            fullList = new ArrayList<>(loadedList.get(randIndex));
+            narrowList = new ArrayList<>(loadedList2.get(randIndex));
+            ArrayList<Clothes> eligibleList = new ArrayList<>();
+            if (narrowList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, narrowList));
+            } else if (fullList.size() > 0) {
+                eligibleList = new ArrayList<>(getEligibleArray(color1, color2, color3, fullList));
+            } else { // no items in this category
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
             }
-            remaining.remove(randNum - 1);
+            if (eligibleList.size() > 0) {
+                int randEliIndex = rand.nextInt(eligibleList.size());
+                if (eligibleList.get(randEliIndex).getColors()[color1] == 1) {
+                    ++color1count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color2] == 1) {
+                    ++color2count;
+                }
+                if (eligibleList.get(randEliIndex).getColors()[color3] == 1) {
+                    ++color3count;
+                }
+                clothesList.set(randIndex, eligibleList.get(randEliIndex));
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            } else { // list consists of only neutral-colored clothes
+                if (narrowList.size() > 0) {
+                    int randNeutIndex = rand.nextInt(narrowList.size());
+                    clothesList.set(randIndex, narrowList.get(randNeutIndex));
+                } else {
+                    int randNeutIndex = rand.nextInt(fullList.size());
+                    clothesList.set(randIndex, fullList.get(randNeutIndex));
+                }
+                completedIndex.add(incompleteIndex.get(randNum));
+                incompleteIndex.remove(randNum);
+                if (incompleteIndex.size() > 0) {
+                    randNum = rand.nextInt(incompleteIndex.size());
+                }
+            }
         }
         ArrayList<Clothes> copyList = new ArrayList<>(clothesList);
         listArray.set(6,copyList);
