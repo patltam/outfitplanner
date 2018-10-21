@@ -11,10 +11,16 @@
         android:background="@android:color/black">
 
         <ImageView
-            android:id="@+id/emptyimage"
+            android:id="@+id/noneimage"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@mipmap/none"/>
+
+        <ImageView
+            android:id="@+id/allimage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@mipmap/allfilter"/>
 
         <TextView
             android:id="@+id/titletext"

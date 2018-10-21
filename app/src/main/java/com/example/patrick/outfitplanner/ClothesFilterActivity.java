@@ -77,7 +77,8 @@ public class ClothesFilterActivity extends AppCompatActivity {
                 break;
         }
         loadArray(this, clothesType);
-        filterClothesList.add(0, new Clothes("NONE",false,"","NONE",colorsList,weatherList,formalityList));
+        filterClothesList.add(0, new Clothes("ALL",true,"","ALL",colorsList,weatherList,formalityList));
+        filterClothesList.add(1, new Clothes("NONE",false,"","NONE",colorsList,weatherList,formalityList));
         TextView textView = (TextView) findViewById(R.id.filtertitletext);
         textView.setText("FILTER: " + clothesType);
 

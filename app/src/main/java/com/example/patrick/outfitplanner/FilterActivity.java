@@ -51,7 +51,7 @@ public class FilterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filter_select);
 
-        clothesImg = (ImageView)findViewById(R.id.emptyimage);
+        clothesImg = (ImageView)findViewById(R.id.noneimage);
         clothesImg.setDrawingCacheEnabled(true);
         clothesImg.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
                 View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
@@ -59,9 +59,20 @@ public class FilterActivity extends AppCompatActivity {
                 clothesImg.getMeasuredWidth(), clothesImg.getMeasuredHeight());
         clothesImg.buildDrawingCache(true);
         clothesImg.setDrawingCacheEnabled(false);
-        img = saveImage(((BitmapDrawable)clothesImg.getDrawable()).getBitmap());
+        img = saveImage(((BitmapDrawable)clothesImg.getDrawable()).getBitmap(),"NONE");
 
-        Clothes empty = new Clothes("NONE",false,"","NONE",colorsList,weatherList,formalityList);
+        // TODO: Create a dummy ImageView with "NONE" and copy above section to save the "NONE" image
+        clothesImg = (ImageView)findViewById(R.id.allimage);
+        clothesImg.setDrawingCacheEnabled(true);
+        clothesImg.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        clothesImg.layout(0, 0,
+                clothesImg.getMeasuredWidth(), clothesImg.getMeasuredHeight());
+        clothesImg.buildDrawingCache(true);
+        clothesImg.setDrawingCacheEnabled(false);
+        img = saveImage(((BitmapDrawable)clothesImg.getDrawable()).getBitmap(),"ALL");
+
+        Clothes empty = new Clothes("ALL",false,"","ALL",colorsList,weatherList,formalityList);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             clothesList = (ArrayList<Clothes>)bundle.getSerializable("list");
@@ -270,8 +281,8 @@ public class FilterActivity extends AppCompatActivity {
         }
     }
 
-    public String saveImage(Bitmap bitmap) {
-        String fileName = "NONE"; //no .png or .jpg needed; make sure all descs are unique
+    public String saveImage(Bitmap bitmap, String str) {
+        String fileName = str; //no .png or .jpg needed; make sure all descs are unique
         try {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);

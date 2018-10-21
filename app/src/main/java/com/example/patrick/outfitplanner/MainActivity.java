@@ -1249,6 +1249,8 @@ public class MainActivity extends AppCompatActivity {
         return randIndex;
     }
 
+    // three colors equally spaced around color wheel
+    // should be mainly one color with other two as accents
     public int generateTriadic() {
         int value = 0;
         int color1 = -1;
@@ -1263,12 +1265,13 @@ public class MainActivity extends AppCompatActivity {
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
             // if filter has clothes selected already, that category is completed
-            if (!(filtersList.get(i).getType().equals("NONE"))) {
+            if (filtersList.get(i).getType().equals("NONE")){
+                // do nothing; list remains empty, do not add to completedIndex (messes up next section)
+            } else if (filtersList.get(i).getType().equals("ALL")) {
+                incompleteIndex.add(i);
+            } else {
                 completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-            }
-            else {
-                incompleteIndex.add(i);
             }
         }
 
@@ -1314,7 +1317,9 @@ public class MainActivity extends AppCompatActivity {
         // go through non-pre-selected categories
         ArrayList<Clothes> fullList;
         ArrayList<Clothes> narrowList;
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         // color scheme doesn't exist yet, keep trying until no categories left
         while (color1 == -1 && incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
@@ -1417,7 +1422,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // color scheme exists, choose rest of clothes based on color scheme
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         while (incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum);
             fullList = new ArrayList<>(loadedList.get(randIndex));
@@ -1471,6 +1478,7 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    // three colors - base color + two colors next to the complement
     public int generateSplitComp() {
         int value = 0;
         int color1 = -1;
@@ -1485,12 +1493,13 @@ public class MainActivity extends AppCompatActivity {
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
             // if filter has clothes selected already, that category is completed
-            if (!(filtersList.get(i).getType().equals("NONE"))) {
+            if (filtersList.get(i).getType().equals("NONE")){
+                // do nothing; list remains empty, do not add to completedIndex (messes up next section)
+            } else if (filtersList.get(i).getType().equals("ALL")) {
+                incompleteIndex.add(i);
+            } else {
                 completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-            }
-            else {
-                incompleteIndex.add(i);
             }
         }
 
@@ -1536,7 +1545,9 @@ public class MainActivity extends AppCompatActivity {
         // go through non-pre-selected categories
         ArrayList<Clothes> fullList;
         ArrayList<Clothes> narrowList;
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         // color scheme doesn't exist yet, keep trying until no categories left
         while (color1 == -1 && incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
@@ -1639,7 +1650,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // color scheme exists, choose rest of clothes based on color scheme
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         while (incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum);
             fullList = new ArrayList<>(loadedList.get(randIndex));
@@ -1693,6 +1706,7 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    // two colors on opposite side of color wheel
     public int generateComp() {
         int value = 0;
         int color1 = -1;
@@ -1707,12 +1721,13 @@ public class MainActivity extends AppCompatActivity {
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
             // if filter has clothes selected already, that category is completed
-            if (!(filtersList.get(i).getType().equals("NONE"))) {
+            if (filtersList.get(i).getType().equals("NONE")){
+                // do nothing; list remains empty, do not add to completedIndex (messes up next section)
+            } else if (filtersList.get(i).getType().equals("ALL")) {
+                incompleteIndex.add(i);
+            } else {
                 completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-            }
-            else {
-                incompleteIndex.add(i);
             }
         }
 
@@ -1758,7 +1773,9 @@ public class MainActivity extends AppCompatActivity {
         // go through non-pre-selected categories
         ArrayList<Clothes> fullList;
         ArrayList<Clothes> narrowList;
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         // color scheme doesn't exist yet, keep trying until no categories left
         while (color1 == -1 && incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
@@ -1861,7 +1878,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // color scheme exists, choose rest of clothes based on color scheme
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         while (incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum);
             fullList = new ArrayList<>(loadedList.get(randIndex));
@@ -1915,6 +1934,7 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    // two colors that are child and parent (two spaces apart)
     public int generateSharedLine() {
         int value = 0;
         int color1 = -1;
@@ -1929,12 +1949,13 @@ public class MainActivity extends AppCompatActivity {
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
             // if filter has clothes selected already, that category is completed
-            if (!(filtersList.get(i).getType().equals("NONE"))) {
+            if (filtersList.get(i).getType().equals("NONE")){
+                // do nothing; list remains empty, do not add to completedIndex (messes up next section)
+            } else if (filtersList.get(i).getType().equals("ALL")) {
+                incompleteIndex.add(i);
+            } else {
                 completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-            }
-            else {
-                incompleteIndex.add(i);
             }
         }
 
@@ -1980,7 +2001,9 @@ public class MainActivity extends AppCompatActivity {
         // go through non-pre-selected categories
         ArrayList<Clothes> fullList;
         ArrayList<Clothes> narrowList;
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         // color scheme doesn't exist yet, keep trying until no categories left
         while (color1 == -1 && incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
@@ -2083,7 +2106,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // color scheme exists, choose rest of clothes based on color scheme
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         while (incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum);
             fullList = new ArrayList<>(loadedList.get(randIndex));
@@ -2137,6 +2162,7 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    // two colors right next to each other
     public int generateAnalagous() {
         int value = 0;
         int color1 = -1;
@@ -2151,12 +2177,13 @@ public class MainActivity extends AppCompatActivity {
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
             // if filter has clothes selected already, that category is completed
-            if (!(filtersList.get(i).getType().equals("NONE"))) {
+            if (filtersList.get(i).getType().equals("NONE")){
+                // do nothing; list remains empty, do not add to completedIndex (messes up next section)
+            } else if (filtersList.get(i).getType().equals("ALL")) {
+                incompleteIndex.add(i);
+            } else {
                 completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-            }
-            else {
-                incompleteIndex.add(i);
             }
         }
 
@@ -2202,7 +2229,9 @@ public class MainActivity extends AppCompatActivity {
         // go through non-pre-selected categories
         ArrayList<Clothes> fullList;
         ArrayList<Clothes> narrowList;
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         // color scheme doesn't exist yet, keep trying until no categories left
         while (color1 == -1 && incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
@@ -2305,7 +2334,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // color scheme exists, choose rest of clothes based on color scheme
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         while (incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum);
             fullList = new ArrayList<>(loadedList.get(randIndex));
@@ -2359,6 +2390,8 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    // mostly neutral with splash of color
+    // currently is triadic
     public int generateAchromatic() {
         int value = 0;
         int color1 = -1;
@@ -2373,12 +2406,13 @@ public class MainActivity extends AppCompatActivity {
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
             // if filter has clothes selected already, that category is completed
-            if (!(filtersList.get(i).getType().equals("NONE"))) {
+            if (filtersList.get(i).getType().equals("NONE")){
+                // do nothing; list remains empty, do not add to completedIndex (messes up next section)
+            } else if (filtersList.get(i).getType().equals("ALL")) {
+                incompleteIndex.add(i);
+            } else {
                 completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-            }
-            else {
-                incompleteIndex.add(i);
             }
         }
 
@@ -2424,7 +2458,9 @@ public class MainActivity extends AppCompatActivity {
         // go through non-pre-selected categories
         ArrayList<Clothes> fullList;
         ArrayList<Clothes> narrowList;
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         // color scheme doesn't exist yet, keep trying until no categories left
         while (color1 == -1 && incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
@@ -2527,7 +2563,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // color scheme exists, choose rest of clothes based on color scheme
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         while (incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum);
             fullList = new ArrayList<>(loadedList.get(randIndex));
@@ -2581,6 +2619,7 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    // single color
     public int generateMonochromatic() {
         int value = 0;
         int color1 = -1;
@@ -2595,12 +2634,13 @@ public class MainActivity extends AppCompatActivity {
         // check which filters have pre-selected items
         for (int i = 0; i < filtersList.size(); ++i) {
             // if filter has clothes selected already, that category is completed
-            if (!(filtersList.get(i).getType().equals("NONE"))) {
+            if (filtersList.get(i).getType().equals("NONE")){
+                // do nothing; list remains empty, do not add to completedIndex (messes up next section)
+            } else if (filtersList.get(i).getType().equals("ALL")) {
+                incompleteIndex.add(i);
+            } else {
                 completedIndex.add(i);
                 clothesList.set(i,filtersList.get(i));
-            }
-            else {
-                incompleteIndex.add(i);
             }
         }
 
@@ -2646,7 +2686,9 @@ public class MainActivity extends AppCompatActivity {
         // go through non-pre-selected categories
         ArrayList<Clothes> fullList;
         ArrayList<Clothes> narrowList;
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         // color scheme doesn't exist yet, keep trying until no categories left
         while (color1 == -1 && incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum); // index corresponding to clothes category
@@ -2749,7 +2791,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // color scheme exists, choose rest of clothes based on color scheme
-        randNum = rand.nextInt(incompleteIndex.size());
+        if (incompleteIndex.size() > 0) {
+            randNum = rand.nextInt(incompleteIndex.size());
+        }
         while (incompleteIndex.size() > 0) {
             randIndex = incompleteIndex.get(randNum);
             fullList = new ArrayList<>(loadedList.get(randIndex));
