@@ -61,7 +61,6 @@ public class FilterActivity extends AppCompatActivity {
         clothesImg.setDrawingCacheEnabled(false);
         img = saveImage(((BitmapDrawable)clothesImg.getDrawable()).getBitmap(),"NONE");
 
-        // TODO: Create a dummy ImageView with "NONE" and copy above section to save the "NONE" image
         clothesImg = (ImageView)findViewById(R.id.allimage);
         clothesImg.setDrawingCacheEnabled(true);
         clothesImg.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
