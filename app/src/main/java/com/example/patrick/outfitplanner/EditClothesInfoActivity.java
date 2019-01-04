@@ -160,8 +160,6 @@ public class EditClothesInfoActivity extends AppCompatActivity {
             }
             desc = clothesList.get(position).getDesc();
             nameBox.setText(desc, EDITABLE);
-            Log.d(desc, "Checking for position");
-            Log.d(msg, "Checking for position");
             for (int i = 0; i < 19; ++i) {
                 if (clothesList.get(position).getColors()[i] == 1) {
                     checkboxColorList.get(i).setChecked(true);
@@ -188,9 +186,6 @@ public class EditClothesInfoActivity extends AppCompatActivity {
         addImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-                //photoPickerIntent.setType("image/*");
-                //startActivityForResult(photoPickerIntent, SELECT_PHOTO);
                 Intent intent = new Intent();
                 // Show only images, no videos or anything else
                 intent.setType("image/*");
@@ -234,16 +229,6 @@ public class EditClothesInfoActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                /*Clothes createdClothes = new Clothes(img, allow, desc, clothesType, colorsList,
-                        weatherList, formalityList);
-                if (editMode) {
-                    clothesList.set(position, createdClothes);
-                    Log.d("Editing", "Item edited");
-                }
-                else {
-                    clothesList.add(createdClothes);
-                    Log.d("Creating", "Item created");
-                }*/
                 confirm = true;
                 Intent in = new Intent(EditClothesInfoActivity.this, ClosetActivity.class);
                 in.putExtra("type", clothesType);

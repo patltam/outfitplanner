@@ -478,14 +478,6 @@ public class ClosetActivity extends AppCompatActivity {
 
     public void loadArray(Context mContext)
     {
-        /*SharedPreferences mSharedPreference1 =   PreferenceManager.getDefaultSharedPreferences(mContext);
-        sKey.clear();
-        int size = mSharedPreference1.getInt("Status_size", 0);
-
-        for(int i=0;i<size;i++)
-        {
-            sKey.add(mSharedPreference1.getString("Status_" + i, null));
-        }*/
         SharedPreferences mSharedPreference1 =  PreferenceManager.getDefaultSharedPreferences(mContext);
         clothesList.clear();
         int size = 0;

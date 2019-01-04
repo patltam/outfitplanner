@@ -71,7 +71,7 @@ public class FilterActivity extends AppCompatActivity {
         clothesImg.setDrawingCacheEnabled(false);
         img = saveImage(((BitmapDrawable)clothesImg.getDrawable()).getBitmap(),"ALL");
 
-        Clothes empty = new Clothes("ALL",false,"","ALL",colorsList,weatherList,formalityList);
+        Clothes empty = new Clothes("ALL",true,"","ALL",colorsList,weatherList,formalityList);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             clothesList = (ArrayList<Clothes>)bundle.getSerializable("list");
