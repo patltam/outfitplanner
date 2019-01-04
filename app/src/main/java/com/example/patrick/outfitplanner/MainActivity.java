@@ -606,6 +606,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // saves current list to Saved Outfits
     public boolean saveList(int listNumber, Context mContext) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor mEdit1 = sp.edit();
