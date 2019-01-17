@@ -436,42 +436,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log.d(msg, "The onCreate() event");
+        //Log.d(msg, "The onCreate() event");
     }
 
     /** Called when the activity is about to become visible. */
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event");
+        //Log.d(msg, "The onStart() event");
     }
 
     /** Called when the activity has become visible. */
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(msg, "The onResume() event");
+        //Log.d(msg, "The onResume() event");
     }
 
     /** Called when another activity is taking focus. */
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(msg, "The onPause() event");
+        //Log.d(msg, "The onPause() event");
     }
 
     /** Called when the activity is no longer visible. */
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(msg, "The onStop() event");
+        //Log.d(msg, "The onStop() event");
     }
 
     /** Called just before the activity is destroyed. */
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
+        //Log.d(msg, "The onDestroy() event");
     }
 
     @Override
@@ -479,6 +479,7 @@ public class MainActivity extends AppCompatActivity {
         // do nothing
     }
 
+    // generate a variety of outfits based on different types of color schemes
     public void generate() {
         loadArray(this, "HEAD");
         loadArray(this, "NECK");
@@ -521,6 +522,7 @@ public class MainActivity extends AppCompatActivity {
         generateOutfit(0, 0, 1, 1, 1, 6); // Monochromatic
     }
 
+    // pick random clothes
     public void randomGenerate() {
         loadArrayRandom(this, "HEAD");
         loadArrayRandom(this, "NECK");
@@ -685,6 +687,7 @@ public class MainActivity extends AppCompatActivity {
         return mEdit1.commit();
     }
 
+    // loads current filter settings
     public void loadFilters(Context mContext) {
         SharedPreferences mSharedPreference1 = PreferenceManager.getDefaultSharedPreferences(mContext);
         for (int i = 0; i < 19; ++i) {
@@ -727,6 +730,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // loads clothes that matches at least one filter in each category (color, weather, formality)
     public void loadArray(Context mContext, String clothesType)
     {
         SharedPreferences mSharedPreference1 = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -1320,6 +1324,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    // pick a random available non-neutral color
     public int getRandNonNeutralColor(int[] colorArray) {
         int randIndex = 0;
         Random rand = new Random();
@@ -1391,6 +1396,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // used for ordering a map of list sizes
     public Map<Integer,Integer> orderMap(Map<Integer,Integer> typeMap) {
         Map<Integer,Integer> orderedTypeMap = new HashMap<>();
         for (Map.Entry<Integer,Integer> entry : typeMap.entrySet()) {
@@ -1399,6 +1405,10 @@ public class MainActivity extends AppCompatActivity {
         return orderedTypeMap;
     }
 
+    // generate an outfit based on settings
+    // colorDiff dictates color scheme
+    // colorLimit dictates ratio of colors (out of 8)
+    // slot is which screen the outfit appears on
     public int generateOutfit(int colorDiff, int colorDiff2, double colorLimit1, double colorLimit2, double colorLimit3, int slot) {
         int value = 0;
         int emptyCount = 0;
@@ -1771,6 +1781,7 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    // loads full array for random selection
     public void loadArrayRandom(Context mContext, String clothesType)
     {
         SharedPreferences mSharedPreference1 = PreferenceManager.getDefaultSharedPreferences(mContext);

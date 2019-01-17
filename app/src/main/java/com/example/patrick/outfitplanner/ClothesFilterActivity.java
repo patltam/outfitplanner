@@ -34,7 +34,7 @@ public class ClothesFilterActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(msg, "The onCreate() event");
+        //Log.d(msg, "The onCreate() event");
         setContentView(R.layout.clothesfilter_activity);
 
         Bundle bundle = getIntent().getExtras();
@@ -100,7 +100,7 @@ public class ClothesFilterActivity extends AppCompatActivity {
                 // Send intent to SingleViewActivity
                 Intent in = new Intent(ClothesFilterActivity.this, FilterActivity.class);
                 // Pass image index
-                Log.d(String.valueOf(gridPosition), "The onStart() event");
+                //Log.d(String.valueOf(gridPosition), "The onStart() event");
                 clothesList.set(position, filterClothesList.get(gridPosition));
                 in.putExtra("list", clothesList);
                 startActivity(in);
@@ -112,35 +112,35 @@ public class ClothesFilterActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event");
+        //Log.d(msg, "The onStart() event");
     }
 
     /** Called when the activity has become visible. */
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(msg, "The onResume() event");
+        //Log.d(msg, "The onResume() event");
     }
 
     /** Called when another activity is taking focus. */
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(msg, "The onPause() event");
+        //Log.d(msg, "The onPause() event");
     }
 
     /** Called when the activity is no longer visible. */
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(msg, "The onStop() event");
+        //Log.d(msg, "The onStop() event");
     }
 
     /** Called just before the activity is destroyed. */
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
+        //Log.d(msg, "The onDestroy() event");
     }
 
     @Override
@@ -149,6 +149,7 @@ public class ClothesFilterActivity extends AppCompatActivity {
         startActivity(in);
     }
 
+    // loads closet for this clothes type
     public void loadArray(Context mContext, String clothesType)
     {
         SharedPreferences mSharedPreference1 =   PreferenceManager.getDefaultSharedPreferences(mContext);

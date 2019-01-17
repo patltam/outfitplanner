@@ -99,11 +99,6 @@ public class EditClothesInfoActivity extends AppCompatActivity {
         checkboxColorList.add(16, (CheckBox)findViewById(R.id.violetbox));
         checkboxColorList.add(17, (CheckBox)findViewById(R.id.purplebox));
         checkboxColorList.add(18, (CheckBox)findViewById(R.id.magentabox));
-        /*for (int i = 1; i < checkboxColorList.size(); ++i) {
-            if (checkboxColorList.get(i).isChecked()) {
-                colorsList[i] = 1;
-            }
-        }*/
 
         for (int i = 0; i < 6; ++i) {
             checkboxWeatherList.add((CheckBox)findViewById(R.id.hotbox));
@@ -114,11 +109,6 @@ public class EditClothesInfoActivity extends AppCompatActivity {
         checkboxWeatherList.add(2, (CheckBox)findViewById(R.id.coldbox));
         checkboxWeatherList.add(3, (CheckBox)findViewById(R.id.rainybox));
         checkboxWeatherList.add(4, (CheckBox)findViewById(R.id.snowybox));
-        /*for (int i = 1; i < checkboxWeatherList.size(); ++i) {
-            if (checkboxWeatherList.get(i).isChecked()) {
-                weatherList[i] = 1;
-            }
-        }*/
 
         for (int i = 0; i < 5; ++i) {
             checkboxFormalityList.add((CheckBox)findViewById(R.id.formalbox));
@@ -128,11 +118,6 @@ public class EditClothesInfoActivity extends AppCompatActivity {
         checkboxFormalityList.add(1, (CheckBox)findViewById(R.id.semiformalbox));
         checkboxFormalityList.add(2, (CheckBox)findViewById(R.id.informalbox));
         checkboxFormalityList.add(3, (CheckBox)findViewById(R.id.casualbox));
-        /*for (int i = 1; i < checkboxFormalityList.size(); ++i) {
-            if (checkboxFormalityList.get(i).isChecked()) {
-                formalityList[i] = 1;
-            }
-        }*/
 
         clothesImg = (ImageView)findViewById(R.id.image);
         allowBox = (CheckBox)findViewById(R.id.allowbox);
@@ -243,14 +228,14 @@ public class EditClothesInfoActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event");
+        //Log.d(msg, "The onStart() event");
     }
 
     /** Called when the activity has become visible. */
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(msg, "The onResume() event");
+        //Log.d(msg, "The onResume() event");
     }
 
     /** Called when another activity is taking focus. */
@@ -265,7 +250,7 @@ public class EditClothesInfoActivity extends AppCompatActivity {
             clothesImg.layout(0, 0,
                     clothesImg.getMeasuredWidth(), clothesImg.getMeasuredHeight());
             clothesImg.buildDrawingCache(true);
-            Log.d(String.valueOf(position), "Checking for position");
+            //Log.d(String.valueOf(position), "Checking for position");
             //img = saveImage(Bitmap.createBitmap(clothesImg.getDrawingCache()));
             clothesImg.setDrawingCacheEnabled(false);
             img = saveImage(((BitmapDrawable)clothesImg.getDrawable()).getBitmap());
@@ -478,14 +463,14 @@ public class EditClothesInfoActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(msg, "The onStop() event");
+        //Log.d(msg, "The onStop() event");
     }
 
     /** Called just before the activity is destroyed. */
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
+        //Log.d(msg, "The onDestroy() event");
     }
 
     @Override
@@ -536,8 +521,8 @@ public class EditClothesInfoActivity extends AppCompatActivity {
     {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor mEdit1 = sp.edit();
-        Log.d("Save progress", "Attempting to save");
-        Log.d(clothesType, "Checking type being saved");
+        //Log.d("Save progress", "Attempting to save");
+        //Log.d(clothesType, "Checking type being saved");
 
         switch (clothesType) {
             case "HEAD":
@@ -808,27 +793,12 @@ public class EditClothesInfoActivity extends AppCompatActivity {
             default:
                 break;
         }
-        /*mEdit1.putInt("Status_size", clothesList.size());
-
-        for(int i=0;i<clothesList.size();i++)
-        {
-            mEdit1.remove("Status_" + i);
-            mEdit1.putString("Status_" + i, clothesList.get(i));
-        }*/
 
         return mEdit1.commit();
     }
 
     public void loadArray(Context mContext)
     {
-        /*SharedPreferences mSharedPreference1 =   PreferenceManager.getDefaultSharedPreferences(mContext);
-        sKey.clear();
-        int size = mSharedPreference1.getInt("Status_size", 0);
-
-        for(int i=0;i<size;i++)
-        {
-            sKey.add(mSharedPreference1.getString("Status_" + i, null));
-        }*/
         SharedPreferences mSharedPreference1 =   PreferenceManager.getDefaultSharedPreferences(mContext);
         clothesList.clear();
         int size = 0;
@@ -843,7 +813,7 @@ public class EditClothesInfoActivity extends AppCompatActivity {
         switch (clothesType) {
             case "HEAD":
                 size = mSharedPreference1.getInt("head_size", 0);
-                Log.d(String.valueOf(size), "Hats loaded");
+                //Log.d(String.valueOf(size), "Hats loaded");
                 for (int i = 0; i < size; ++i) {
                     imgPath = mSharedPreference1.getString("head_image" + i, null);
                     allowedBool = mSharedPreference1.getBoolean("head_allowed" + i, false);

@@ -76,7 +76,7 @@ public class EditSavedCloset extends AppCompatActivity {
                 // Send intent to SingleViewActivity
                 Intent in = new Intent(EditSavedCloset.this, EditSavedClothes.class);
                 // Pass image index
-                Log.d(String.valueOf(position), "The onStart() event");
+                //Log.d(String.valueOf(position), "The onStart() event");
                 String type = "";
                 switch (position) {
                     case 0:
@@ -121,21 +121,21 @@ public class EditSavedCloset extends AppCompatActivity {
             }
         });
 
-        Log.d(msg, "The onCreate() event");
+        //Log.d(msg, "The onCreate() event");
     }
 
     /** Called when the activity is about to become visible. */
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event");
+        //Log.d(msg, "The onStart() event");
     }
 
     /** Called when the activity has become visible. */
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(msg, "The onResume() event");
+        //Log.d(msg, "The onResume() event");
     }
 
     /** Called when another activity is taking focus. */
@@ -147,21 +147,21 @@ public class EditSavedCloset extends AppCompatActivity {
         } else if (delete) {
             deleteList(EditSavedCloset.this);
         }
-        Log.d(msg, "The onPause() event");
+        //Log.d(msg, "The onPause() event");
     }
 
     /** Called when the activity is no longer visible. */
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(msg, "The onStop() event");
+        //Log.d(msg, "The onStop() event");
     }
 
     /** Called just before the activity is destroyed. */
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
+        //Log.d(msg, "The onDestroy() event");
     }
 
     @Override

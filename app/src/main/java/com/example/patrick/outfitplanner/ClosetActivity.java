@@ -137,7 +137,7 @@ public class ClosetActivity extends AppCompatActivity {
                 // Send intent to SingleViewActivity
                 Intent in = new Intent(ClosetActivity.this, EditClothesInfoActivity.class);
                 // Pass image index
-                Log.d(String.valueOf(position), "The onStart() event");
+                //Log.d(String.valueOf(position), "The onStart() event");
                 in.putExtra("id", position);
                 in.putExtra("type", clothesType);
                 in.putExtra("list", clothesList);
@@ -145,42 +145,42 @@ public class ClosetActivity extends AppCompatActivity {
             }
         });
 
-        Log.d(msg, "The onCreate() event");
+        //Log.d(msg, "The onCreate() event");
     }
 
     /** Called when the activity is about to become visible. */
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event");
+        //Log.d(msg, "The onStart() event");
     }
 
     /** Called when the activity has become visible. */
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(msg, "The onResume() event");
+        //Log.d(msg, "The onResume() event");
     }
 
     /** Called when another activity is taking focus. */
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(msg, "The onPause() event");
+        //Log.d(msg, "The onPause() event");
     }
 
     /** Called when the activity is no longer visible. */
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(msg, "The onStop() event");
+        //Log.d(msg, "The onStop() event");
     }
 
     /** Called just before the activity is destroyed. */
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
+        //Log.d(msg, "The onDestroy() event");
     }
 
     @Override
@@ -192,6 +192,7 @@ public class ClosetActivity extends AppCompatActivity {
         startActivity(in);
     }
 
+    // saves the closet for this clothes type
     public boolean saveArray()
     {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -465,17 +466,11 @@ public class ClosetActivity extends AppCompatActivity {
             default:
                 break;
         }
-        /*mEdit1.putInt("Status_size", clothesList.size());
-
-        for(int i=0;i<clothesList.size();i++)
-        {
-            mEdit1.remove("Status_" + i);
-            mEdit1.putString("Status_" + i, clothesList.get(i));
-        }*/
 
         return mEdit1.commit();
     }
 
+    // loads the closet for this clothes type
     public void loadArray(Context mContext)
     {
         SharedPreferences mSharedPreference1 =  PreferenceManager.getDefaultSharedPreferences(mContext);

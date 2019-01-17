@@ -30,9 +30,6 @@ public class Clothes implements Parcelable {
         this.allowed = allow;
         this.desc = description;
         this.type = clothesType;
-        //this.colors = colorsList;
-        //this.weathers = weathersList;
-        //this.formalities = formalitiesList;
         for (int i = 0; i < colorsList.length; ++i) {
             this.colors[i] = colorsList[i];
         }

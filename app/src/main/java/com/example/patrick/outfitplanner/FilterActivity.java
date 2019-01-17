@@ -151,7 +151,7 @@ public class FilterActivity extends AppCompatActivity {
                 // Send intent to SingleViewActivity
                 Intent in = new Intent(FilterActivity.this, ClothesFilterActivity.class);
                 // Pass image index
-                Log.d(String.valueOf(position), "The onStart() event");
+                //Log.d(String.valueOf(position), "The onStart() event");
                 in.putExtra("id", position);
                 in.putExtra("list", clothesList);
                 startActivity(in);
@@ -165,21 +165,21 @@ public class FilterActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event");
+        //Log.d(msg, "The onStart() event");
     }
 
     /** Called when the activity has become visible. */
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(msg, "The onResume() event");
+        //Log.d(msg, "The onResume() event");
     }
 
     /** Called when another activity is taking focus. */
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(msg, "The onPause() event");
+        //Log.d(msg, "The onPause() event");
 
         for (int i = 0; i < 19; ++i) {
             if (checkboxColorList.get(i).isChecked()) {
@@ -213,14 +213,14 @@ public class FilterActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(msg, "The onStop() event");
+        //Log.d(msg, "The onStop() event");
     }
 
     /** Called just before the activity is destroyed. */
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
+        //Log.d(msg, "The onDestroy() event");
     }
 
     @Override
@@ -231,6 +231,7 @@ public class FilterActivity extends AppCompatActivity {
         startActivity(in);
     }
 
+    // saves the filter settings
     public boolean saveFilters() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor mEdit1 = sp.edit();
@@ -249,6 +250,7 @@ public class FilterActivity extends AppCompatActivity {
         return mEdit1.commit();
     }
 
+    // loads the filter settings
     public void loadFilters(Context mContext) {
         SharedPreferences mSharedPreference1 =   PreferenceManager.getDefaultSharedPreferences(mContext);
         for (int i = 0; i < 19; ++i) {
@@ -296,6 +298,7 @@ public class FilterActivity extends AppCompatActivity {
         return fileName;
     }
 
+    // saves the array of specific clothes
     public boolean saveArray() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor mEdit1 = sp.edit();
@@ -334,6 +337,7 @@ public class FilterActivity extends AppCompatActivity {
         return mEdit1.commit();
     }
 
+    // loads the array of specific clothes
     public boolean loadArray(Context mContext) {
         SharedPreferences mSharedPreference1 = PreferenceManager.getDefaultSharedPreferences(mContext);
         clothesList.clear();
